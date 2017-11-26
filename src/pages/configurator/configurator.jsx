@@ -4,9 +4,17 @@ class Configurator extends Component {
   state = {  }
   render() {
     return (
-      <div>Configurator</div>
+      <div>
+        <div>Configurator</div>
+        <div>{this.props.initialMessage}</div>
+      </div>
       
     );
+  }
+
+  componentDidMount(){
+    console.log(this.props);
+    this.props.onMount('test displatch to props');
   }
 }
 
