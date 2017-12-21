@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
+
+import GPU from './GPU';
+import Dashboard from './Dashboard';
+
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
-
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
-// import Card from 'material-ui/Card';
 
-import AddIcon from 'material-ui-icons/Add';
 import {withStyles} from 'material-ui/styles';
+import AddIcon from 'material-ui-icons/Add';
 
-import GPU from './GPU';
 
 const styles = theme => ({
   container: {
@@ -25,10 +26,6 @@ const styles = theme => ({
   },
   rightIcon: {
     marginLeft: theme.spacing.unit,
-  },
-  itemCard: {
-    // marginLeft: theme.spacing.unit,
-    height: "100%",
   },
   media: {
     height: 200,
@@ -51,45 +48,24 @@ class Configurator extends Component {
     return (
       <div className={classes.container}>
         <Grid container spacing={24}>
-          <Grid item xs={12}>
-            <div>Configurator</div>
-            <Grid container spacing={8}>
-              <Grid item xs={3}>
-                <Paper className={classes.itemCard} >
-                  rig stats
-                  <br/>
-                  hash rate
-                  <br/>
-                  W
-                  <br/>
-                  price €
-                </Paper>
-              </Grid>
-              <Grid item xs={3}>
-                <Paper className={classes.itemCard} >
-                eth cours
-                </Paper>
-              </Grid>
-              <Grid item xs={3}>
-                <Paper className={classes.itemCard} >
-                rig revenu
-                </Paper>
-              </Grid>
-              <Grid item xs={3}>
-                <Paper className={classes.itemCard} >
-                rig shop
-                </Paper>
-              </Grid>
-            </Grid>
-            {/* summary end */}
-          </Grid>
+          <Dashboard 
+            rigHashRate={this.props.rigHashRate}
+          />
             {/* gpu begin */}
           <Grid item xs={12}>
             GPU
             <Grid container alignItems='center' spacing={24}>
-              <GPU />
+              {this.props.GPUs.map( (gpu, index) => 
+                <GPU 
+                  index={index}
+                  name={gpu.name}
+                  hashRate={gpu.hashRate}
+                  count={gpu.count}
+                  onRemoveGPUClick={this.props.onRemoveGPUClick}
+                />
+              )}
               <Grid item xs={1}>
-                <Button fab color="primary" aria-label="add" className={classes.button}>
+                <Button fab color="primary" aria-label="add" className={classes.button} onClick={this.props.onAddGPUClick}>
                   <AddIcon />
                 </Button>
               </Grid>
@@ -97,9 +73,9 @@ class Configurator extends Component {
           </Grid>
 
           {/* end gpu */}
-          {/* carte mere */}
+          {/* motherboard */}
           <Grid className={classes.itemCategory} item xs={2}>
-            Carte mere
+            Motherboard
               <Card className={classes.card}>
                 <CardMedia
                   className={classes.media}

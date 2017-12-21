@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import configurator from './configurator';
 
 let confucApp = combineReducers({
-  configurator
+  configurator,
 });
 
 export default confucApp;

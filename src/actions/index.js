@@ -5,3 +5,17 @@ export const addTest = text => {
     text
   }
 }
+
+export const addGPU = GPU => {
+  return {
+    type: 'ADD_GPU',
+    GPU,
+  }
+}
+
+export const removeGPUAt = index => {
+  return {
+    type: 'REMOVE_GPU_AT',
+    index,
+  }
+}

@@ -40,11 +40,11 @@ const GPU = ( props ) => {
         />
         <CardContent>
           <Typography type="headline" component="h2">
-            RX 480
-                    </Typography>
+            {props.name}
+          </Typography>
           <Typography component="p">
-            20Mh/s   200W
-                    </Typography>
+            {props.hashRate}Mh/s   200W
+          </Typography>
         </CardContent>
         <div className={classes.storeList}>
           <Divider />
@@ -64,12 +64,14 @@ const GPU = ( props ) => {
           </List>
         </div>
         <CardActions>
-          <Button dense color="primary">
+          <Button
+            onClick={() => { props.onRemoveGPUClick(props.index); }} dense color="primary"
+          >
             delete
-                    </Button>
+          </Button>
           <Button dense color="primary">
-            - 2 +
-                    </Button>
+            - {props.count} +
+          </Button>
         </CardActions>
         <Divider />
       </Card>
