@@ -1,6 +1,6 @@
 import Configurator from './presenter';
 import { connect } from 'react-redux';
-import { addGPU, removeGPUAt } from '../../actions';
+import { addGPU, removeGPUAt, removeGPUCountAt, addGPUCountAt } from '../../actions';
 
 const displayAlert = (text) => {
   alert(text);
@@ -28,7 +28,13 @@ const mapDispatchToProps = dispatch => {
     },
     onRemoveGPUClick : (index) =>{
       dispatch(removeGPUAt(index))
-    }
+    },
+    onRemoveGPUCountClick : (index) => {
+      dispatch(removeGPUCountAt(index))
+    },
+    onAddGPUCountClick: (index) => {
+      dispatch(addGPUCountAt(index))
+    },
   });
 }
 

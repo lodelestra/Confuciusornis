@@ -10,6 +10,8 @@ import InboxIcon from 'material-ui-icons/Inbox';
 import DraftsIcon from 'material-ui-icons/Drafts';
 
 import {withStyles} from 'material-ui/styles';
+import AddIcon from 'material-ui-icons/Add';
+import RemoveIcon from 'material-ui-icons/Remove';
 
 const styles = theme => ({
   container: {
@@ -59,12 +61,27 @@ const GPU = ( props ) => {
         </div>
         <CardActions>
           <Button
-            onClick={() => { props.onRemoveGPUClick(props.index); }} dense color="primary"
+            dense
+            color="primary"
+            onClick={() => { props.onRemoveGPUClick(props.index); }}
           >
             delete
           </Button>
-          <Button dense color="primary">
-            - {props.count} +
+          <Button
+            dense
+            disabled={props.count===1}
+            color="primary"
+            onClick={()=> {props.onRemoveGPUCountClick(props.index)}}
+          >
+            <RemoveIcon />
+          </Button>
+           <p>{props.count}</p>
+          <Button
+            dense
+            color="primary"
+            onClick={()=> {props.onAddGPUCountClick(props.index)}}
+          >
+            <AddIcon />
           </Button>
         </CardActions>
         <Divider />

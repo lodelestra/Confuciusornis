@@ -43,6 +43,11 @@ const styles = theme => ({
 
 class Configurator extends Component {
   state = {  }
+
+  componentWillMount(){
+    //TODO remove
+    this.props.onAddGPUClick();
+  }
   render() {
     const { classes } = this.props;
     return (
@@ -58,12 +63,15 @@ class Configurator extends Component {
             <Grid container alignItems='center' spacing={24}>
               {this.props.GPUs.map( (gpu, index) => 
                 <GPU 
+                  key={index}
                   index={index}
                   name={gpu.name}
                   hashRate={gpu.hashRate}
                   count={gpu.count}
                   price={gpu.price}
                   onRemoveGPUClick={this.props.onRemoveGPUClick}
+                  onRemoveGPUCountClick={this.props.onRemoveGPUCountClick}
+                  onAddGPUCountClick={this.props.onAddGPUCountClick}
                 />
               )}
               <Grid item xs={1}>

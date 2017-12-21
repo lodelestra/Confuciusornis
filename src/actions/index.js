@@ -19,3 +19,17 @@ export const removeGPUAt = index => {
     index,
   }
 }
+
+export const addGPUCountAt = index => {
+  return {
+    type: 'ADD_GPU_COUNT_AT',
+    index,
+  }
+}
+
+export const removeGPUCountAt = index => {
+  return {
+    type: 'REMOVE_GPU_COUNT_AT',
+    index,
+  }
+}
