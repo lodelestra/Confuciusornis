@@ -7,6 +7,7 @@ import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
 import withRoot from '../components/withRoot';
 
+import Grid from 'material-ui/Grid';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import IconButton from 'material-ui/IconButton';
@@ -46,31 +47,33 @@ class Index extends Component {
   };
 
   render() {
-    const {classes} = this.props;
+    const { classes } = this.props;
     return (
       <div className={this.props.classes.root}>
-      <Router>
-          <div>
-            <AppBar position='static'>
-              <Toolbar>
-                <IconButton className={classes.menuButton} color="contrast" aria-label="Menu">
-                  <MenuIcon />
-                </IconButton>
-                <Button color='contrast' component={Link} to="/">Configurator</Button>
-                <Button color='contrast' component={Link} to="/About">About</Button>
+        <Router>
+          <Grid container spacing={24}>
+            <Grid item xs={12}>
+              <AppBar position='static'>
+                <Toolbar>
+                  <IconButton className={classes.menuButton} color="contrast" aria-label="Menu">
+                    <MenuIcon />
+                  </IconButton>
+                  <Button color='contrast' component={Link} to="/">Configurator</Button>
+                  <Button color='contrast' component={Link} to="/About">About</Button>
 
-                <Typography type="title" color="inherit" className={classes.flex}>
-                Bitcoin Ethereum Rig Configurator
-            </Typography>
-              </Toolbar>
-
-            </AppBar>
-
-            <div className='pages-container'>
-              <Route exact path='/' component={Configurator} />
-              <Route path="/About" component={About} />
-            </div>
-          </div>
+                  <Typography type="title" color="inherit" className={classes.flex}>
+                    Bitcoin Ethereum Rig Configurator
+                  </Typography>
+                </Toolbar>
+              </AppBar>
+            </Grid>
+            <Grid item xs={12}>
+              <div className='pages-container'>
+                <Route exact path='/' component={Configurator} />
+                <Route path="/About" component={About} />
+              </div>
+            </Grid>
+          </Grid>
         </Router>
       </div>
     );
