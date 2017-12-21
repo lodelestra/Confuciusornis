@@ -1,4 +1,4 @@
-import Configurator from './configurator';
+import Configurator from './presenter';
 import { connect } from 'react-redux';
 
 const displayAlert = (text) => {

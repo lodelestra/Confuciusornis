@@ -8,11 +8,9 @@ import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 // import Card from 'material-ui/Card';
 
 import AddIcon from 'material-ui-icons/Add';
-import InboxIcon from 'material-ui-icons/Inbox';
-import DraftsIcon from 'material-ui-icons/Drafts';
 import {withStyles} from 'material-ui/styles';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import Divider from 'material-ui/Divider';
+
+import GPU from './GPU';
 
 const styles = theme => ({
   container: {
@@ -32,8 +30,6 @@ const styles = theme => ({
     // marginLeft: theme.spacing.unit,
     height: "100%",
   },
-  card: {
-  },
   media: {
     height: 200,
   },
@@ -46,8 +42,8 @@ const styles = theme => ({
   itemCategory: {
     backgroundColor: '#eee',
   },
-
 })
+
 class Configurator extends Component {
   state = {  }
   render() {
@@ -86,54 +82,12 @@ class Configurator extends Component {
               </Grid>
             </Grid>
             {/* summary end */}
-            {/* gpu begin */}
           </Grid>
+            {/* gpu begin */}
           <Grid item xs={12}>
             GPU
             <Grid container alignItems='center' spacing={24}>
-              <Grid item xs={2}>
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.media}
-                    image="/placeholder.png"
-                    title="Placeholder"
-                  />
-                  <CardContent>
-                    <Typography type="headline" component="h2">
-                      RX 480
-                    </Typography>
-                    <Typography component="p">
-                     20Mh/s   200W
-                    </Typography>
-                  </CardContent>
-                  <div className={classes.storeList}>
-                    <Divider />
-                    <List>
-                      <ListItem button>
-                        <ListItemIcon>
-                          <InboxIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="350 $" />
-                      </ListItem>
-                      <ListItem button>
-                        <ListItemIcon>
-                          <DraftsIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Drafts" />
-                      </ListItem>
-                    </List>
-                  </div>
-                  <CardActions>
-                    <Button dense color="primary">
-                      delete
-                    </Button>
-                    <Button dense color="primary">
-                    - 2 +
-                    </Button>
-                  </CardActions>
-                    <Divider />
-                </Card>
-              </Grid>
+              <GPU />
               <Grid item xs={1}>
                 <Button fab color="primary" aria-label="add" className={classes.button}>
                   <AddIcon />
