@@ -26,7 +26,7 @@ const Dashboard = (props) => {
                   <br />
             W
                   <br />
-            price €
+            price {props.rigPrice} $
                 </Paper>
         </Grid>
         <Grid item xs={3}>

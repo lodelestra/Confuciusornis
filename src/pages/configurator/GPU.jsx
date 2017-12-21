@@ -53,13 +53,7 @@ const GPU = ( props ) => {
               <ListItemIcon>
                 <InboxIcon />
               </ListItemIcon>
-              <ListItemText primary="350 $" />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                <DraftsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Drafts" />
+              <ListItemText primary={`${props.price} $`} />
             </ListItem>
           </List>
         </div>
