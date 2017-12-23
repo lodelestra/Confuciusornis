@@ -45,7 +45,7 @@ const GPU = ( props ) => {
             {props.name}
           </Typography>
           <Typography component="p">
-            {props.hashRate}Mh/s   200W
+            {props.hashRate}Mh/s   {props.power}Watt
           </Typography>
         </CardContent>
         <div className={classes.storeList}>

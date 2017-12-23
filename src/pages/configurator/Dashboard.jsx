@@ -24,7 +24,7 @@ const Dashboard = (props) => {
                   <br />
             hash rate {props.rigHashRate}
                   <br />
-            W
+            {props.rigPower} Watt
                   <br />
             price {props.rigPrice} $
                 </Paper>

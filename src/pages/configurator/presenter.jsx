@@ -56,6 +56,7 @@ class Configurator extends Component {
           <Dashboard 
             rigHashRate={this.props.rigHashRate}
             rigPrice={this.props.rigPrice}
+            rigPower={this.props.rigPower}
           />
             {/* gpu begin */}
           <Grid item xs={12}>
@@ -67,6 +68,7 @@ class Configurator extends Component {
                   index={index}
                   name={gpu.name}
                   hashRate={gpu.hashRate}
+                  power={gpu.power}
                   count={gpu.count}
                   price={gpu.price}
                   onRemoveGPUClick={this.props.onRemoveGPUClick}
