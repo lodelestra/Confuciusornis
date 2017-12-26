@@ -53,17 +53,21 @@ class Configurator extends Component {
     return (
       <div className={classes.container}>
         <Grid container spacing={24}>
-          <Dashboard 
+          <Dashboard
             rigHashRate={this.props.rigHashRate}
             rigPrice={this.props.rigPrice}
+            rigGPUPrice={this.props.rigPrice}
             rigPower={this.props.rigPower}
+            ethPrice={this.props.ethPrice}
+            rigRevenuByDay={this.props.rigRevenuByDay}
+            rigRevenuByMonth={this.props.rigRevenuByMonth}
           />
             {/* gpu begin */}
           <Grid item xs={12}>
             GPU
             <Grid container alignItems='center' spacing={24}>
-              {this.props.GPUs.map( (gpu, index) => 
-                <GPU 
+              {this.props.GPUs.map( (gpu, index) =>
+                <GPU
                   key={index}
                   index={index}
                   name={gpu.name}
@@ -116,7 +120,6 @@ class Configurator extends Component {
         </Grid>
         {/* <div>{this.props.initialMessage}</div> */}
       </div>
-      
     );
   }
 
