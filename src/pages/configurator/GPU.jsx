@@ -7,7 +7,6 @@ import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Button from 'material-ui/Button';
 import Divider from 'material-ui/Divider';
 import InboxIcon from 'material-ui-icons/Inbox';
-import DraftsIcon from 'material-ui-icons/Drafts';
 
 import {withStyles} from 'material-ui/styles';
 import AddIcon from 'material-ui-icons/Add';

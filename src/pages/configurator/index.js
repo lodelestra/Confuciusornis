@@ -8,7 +8,7 @@ const displayAlert = (text) => {
 
 const mapStateToProps = state => {
   const rigHashRate = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.hashRate*gpu.count,0);
-  const rigGPUPrice = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.price*gpu.count,0);
+  const rigGPUPrice = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.price*gpu.count,0); //TODO
   const rigPrice = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.price*gpu.count,0);
   const rigPower = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.power*gpu.count,0);
 
@@ -27,6 +27,7 @@ const mapStateToProps = state => {
   return {
     ...state.configurator,
     rigHashRate,
+    rigGPUPrice,
     rigPrice,
     rigPower,
     ethPrice,

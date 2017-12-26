@@ -56,7 +56,7 @@ class Configurator extends Component {
           <Dashboard
             rigHashRate={this.props.rigHashRate}
             rigPrice={this.props.rigPrice}
-            rigGPUPrice={this.props.rigPrice}
+            rigGPUPrice={this.props.rigGPUPrice}
             rigPower={this.props.rigPower}
             ethPrice={this.props.ethPrice}
             rigRevenuByDay={this.props.rigRevenuByDay}
