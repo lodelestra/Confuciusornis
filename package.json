@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "immutable": "^3.8.2",
     "jss": "^8.1.0",
     "jss-preset-default": "^3.0.0",
     "material-ui": "next",
