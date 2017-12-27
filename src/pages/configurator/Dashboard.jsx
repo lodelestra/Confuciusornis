@@ -63,11 +63,14 @@ const Dashboard = (props) => {
           <Paper className={classes.itemCard} >
             <Typography component="p">
               Rig Check
-              <br />
-              PCI used: 3/4
-              <br />
+            </Typography>
+            {props.motherboard?
+              <Typography component="p" color={props.rigPCIUsage>props.motherboard.pci?'error':'default'}>
+                PCI used: {props.rigPCIUsage}/{props.motherboard.pci}
+              </Typography>
+            :null}
+            <Typography component="p">
               Power consemption: 450/650 W
-              <br />
             </Typography>
           </Paper>
         </Grid>

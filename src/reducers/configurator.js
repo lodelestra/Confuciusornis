@@ -32,6 +32,11 @@ const configurator = (state = initialState , action) => {
           ...state,
           GPUs: state.GPUs.update(action.index, gpu => ({...gpu, count:gpu.count-1})),
         };
+    case 'ADD_MOTHERBOARD':
+      return {
+          ...state,
+          motherboard: action.motherboard,
+        };
 
     default:
       return state;

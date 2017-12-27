@@ -1,6 +1,7 @@
 import Configurator from './presenter';
 import { connect } from 'react-redux';
 import { addGPU, removeGPUAt, removeGPUCountAt, addGPUCountAt } from '../../actions';
+import { addMotherboard } from '../../actions';
 
 const displayAlert = (text) => {
   alert(text);
@@ -11,6 +12,7 @@ const mapStateToProps = state => {
   const rigGPUPrice = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.price*gpu.count,0); //TODO
   const rigPrice = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.price*gpu.count,0);
   const rigPower = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.power*gpu.count,0);
+  const rigPCIUsage = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.count,0);
 
   //to load
   const ethPrice = 750.63;
@@ -30,6 +32,7 @@ const mapStateToProps = state => {
     rigGPUPrice,
     rigPrice,
     rigPower,
+    rigPCIUsage,
     ethPrice,
     rigRevenuByDay,
     rigRevenuByMonth,
@@ -60,6 +63,13 @@ const mapDispatchToProps = dispatch => {
     },
     onAddGPUCountClick: (index) => {
       dispatch(addGPUCountAt(index))
+    },
+    onAddMotherboardClick: () => {
+      dispatch(addMotherboard({
+        name: 'Asus 8',
+        pci: 5,
+        price:[79,83,91].random(),
+      }))
     },
   });
 }

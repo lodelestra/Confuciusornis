@@ -76,7 +76,9 @@ const GPU = ( props ) => {
           >
             <RemoveIcon />
           </Button>
-           <p>{props.count}</p>
+          <Typography component="p">
+            {props.count}
+          </Typography>
           <Button
             dense
             color="primary"

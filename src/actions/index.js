@@ -33,3 +33,10 @@ export const removeGPUCountAt = index => {
     index,
   }
 }
+
+export const addMotherboard = motherboard => {
+  return {
+    type: 'ADD_MOTHERBOARD',
+    motherboard,
+  }
+}
