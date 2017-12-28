@@ -1,3 +1,6 @@
+export const ADD_PSU = 'ADD_PSU';
+export const REMOVE_PSU = 'REMOVE_PSU';
+
 export const addTest = text => {
   return {
     type: 'ADD_TEST',
@@ -44,5 +47,18 @@ export const addMotherboard = motherboard => {
 export const removeMotherboard = () => {
   return {
     type: 'REMOVE_MOTHERBOARD',
+  }
+}
+
+export const addPSU = PSU => {
+  return {
+    type: ADD_PSU,
+    PSU,
+  }
+}
+
+export const removePSU = () => {
+  return {
+    type: REMOVE_PSU,
   }
 }

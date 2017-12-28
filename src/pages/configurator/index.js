@@ -2,6 +2,7 @@ import Configurator from './presenter';
 import { connect } from 'react-redux';
 import { addGPU, removeGPUAt, removeGPUCountAt, addGPUCountAt } from '../../actions';
 import { addMotherboard, removeMotherboard } from '../../actions';
+import { addPSU, removePSU } from '../../actions';
 
 const displayAlert = (text) => {
   alert(text);
@@ -69,6 +70,7 @@ const mapDispatchToProps = dispatch => {
     onAddMotherboardClick: () => {
       dispatch(addMotherboard({
         name: 'Asus 8',
+        socket: [1117,1115,1200].random(),
         pci: 5,
         price:[79,83,91].random(),
         power:[50,55,62].random(),
@@ -76,6 +78,16 @@ const mapDispatchToProps = dispatch => {
     },
     onRemoveMotherboardClick: () => {
       dispatch(removeMotherboard())
+    },
+    onAddPSUClick: () => {
+      dispatch(addPSU({
+        name: 'corsair',
+        price:[79,83,91].random(),
+        powerSupply:[650,750,800].random(),
+      }))
+    },
+    onRemovePSUClick: () => {
+      dispatch(removePSU())
     },
   });
 }

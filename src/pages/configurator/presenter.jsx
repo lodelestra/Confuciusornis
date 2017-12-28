@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import GPU from './GPU';
 import Dashboard from './Dashboard';
 import Motherboard from './Motherboard';
+import PSU from './PSU';
 
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
@@ -61,6 +62,7 @@ class Configurator extends Component {
             rigRevenuByDay={this.props.rigRevenuByDay}
             rigRevenuByMonth={this.props.rigRevenuByMonth}
             motherboard={this.props.motherboard}
+            PSU={this.props.PSU}
           />
             {/* gpu begin */}
           <Grid item xs={12}>
@@ -96,6 +98,11 @@ class Configurator extends Component {
             onRemoveMotherboardClick={this.props.onRemoveMotherboardClick}
           />
 
+          <PSU
+            data={this.props.PSU}
+            onAddPSUClick={this.props.onAddPSUClick}
+            onRemovePSUClick={this.props.onRemovePSUClick}
+          />
         </Grid>
         {/* <div>{this.props.initialMessage}</div> */}
       </div>

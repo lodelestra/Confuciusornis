@@ -31,12 +31,12 @@ const styles = theme => ({
   },
 });
 
-const Motherboard = ( props ) => {
+const PSU = ( props ) => {
   const { classes } = props;
   return (
     <Grid className={classes.itemCategory} item xs={2}>
       <Typography type="headline" component="h3">
-        Motherboard
+        PSU
       </Typography>
       {props.data?
         <Card className={classes.card}>
@@ -50,13 +50,7 @@ const Motherboard = ( props ) => {
             { props.data.name }
             </Typography>
             <Typography component="p">
-              socket {props.data.socket}.
-            </Typography>
-            <Typography component="p">
-              {props.data.power}W.
-            </Typography>
-            <Typography component="p">
-              {props.data.pci} PCI
+              {props.data.powerSupply}W.
             </Typography>
           </CardContent>
           <div className={classes.storeList}>
@@ -74,7 +68,7 @@ const Motherboard = ( props ) => {
             <Button
               dense
               color="primary"
-              onClick={() => { props.onRemoveMotherboardClick(); }}
+              onClick={() => { props.onRemovePSUClick(); }}
             >
               delete
             </Button>
@@ -83,7 +77,7 @@ const Motherboard = ( props ) => {
         :
         <Card
           className={classes.card}
-          onClick={() => { props.onAddMotherboardClick(); }}
+          onClick={() => { props.onAddPSUClick(); }}
         >
           <CardMedia
             className={classes.media}
@@ -98,7 +92,7 @@ const Motherboard = ( props ) => {
               dense
               color="primary"
             >
-              Add a motherboard
+              Add a PSU
             </Button>
           </CardActions>
         </Card>
@@ -108,4 +102,4 @@ const Motherboard = ( props ) => {
   );
 }
 
-export default withStyles(styles)(Motherboard);
+export default withStyles(styles)(PSU);
