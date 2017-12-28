@@ -40,3 +40,9 @@ export const addMotherboard = motherboard => {
     motherboard,
   }
 }
+
+export const removeMotherboard = () => {
+  return {
+    type: 'REMOVE_MOTHERBOARD',
+  }
+}

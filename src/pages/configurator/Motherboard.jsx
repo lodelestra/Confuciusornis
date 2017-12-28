@@ -9,7 +9,6 @@ import Divider from 'material-ui/Divider';
 import InboxIcon from 'material-ui-icons/Inbox';
 
 import {withStyles} from 'material-ui/styles';
-import AddIcon from 'material-ui-icons/Add';
 
 const styles = theme => ({
   container: {
@@ -26,13 +25,20 @@ const styles = theme => ({
   storeList: {
     margin: theme.spacing.unit,
   },
+  addButton: {
+    verticalAlign: 'middle !important',
+    marginTop: '50px',
+  },
 });
 
 const Motherboard = ( props ) => {
   const { classes } = props;
   return (
     <Grid className={classes.itemCategory} item xs={2}>
-      Motherboard
+      <Typography type="headline" component="h3">
+        Motherboard
+      </Typography>
+      {props.data?
         <Card className={classes.card}>
           <CardMedia
             className={classes.media}
@@ -63,7 +69,7 @@ const Motherboard = ( props ) => {
                 <ListItemIcon>
                   <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary={`${props.price} $`} />
+                <ListItemText primary={`${props.data.price} $`} />
               </ListItem>
             </List>
           </div>
@@ -77,6 +83,29 @@ const Motherboard = ( props ) => {
             </Button>
           </CardActions>
         </Card>
+        :
+        <Card
+          className={classes.card}
+          onClick={() => { props.onAddMotherboardClick(); }}
+        >
+          <CardMedia
+            className={classes.media}
+            image="/placeholder.png"
+            title="Placeholder"
+          />
+          <CardContent>
+
+          </CardContent>
+          <CardActions>
+            <Button
+              dense
+              color="primary"
+            >
+              Add a motherboard
+            </Button>
+          </CardActions>
+        </Card>
+      }
     </Grid>
 
   );

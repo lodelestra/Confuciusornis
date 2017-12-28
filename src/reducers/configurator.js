@@ -37,6 +37,11 @@ const configurator = (state = initialState , action) => {
           ...state,
           motherboard: action.motherboard,
         };
+    case 'REMOVE_MOTHERBOARD':
+      return {
+          ...state,
+          motherboard: undefined,
+        };
 
     default:
       return state;

@@ -1,7 +1,7 @@
 import Configurator from './presenter';
 import { connect } from 'react-redux';
 import { addGPU, removeGPUAt, removeGPUCountAt, addGPUCountAt } from '../../actions';
-import { addMotherboard } from '../../actions';
+import { addMotherboard, removeMotherboard } from '../../actions';
 
 const displayAlert = (text) => {
   alert(text);
@@ -18,7 +18,6 @@ const mapStateToProps = state => {
   const ethPrice = 750.63;
   const netHashGH = 148106.38;
   const blockTime = 14.17; //sec
-  const difficulty = 1854000000000000
 
   let netEthPerDay = 3*24*60*60 / blockTime;
   const rigEthPerDay = (netEthPerDay*rigHashRate*1e6)/(netHashGH * 1e9)
@@ -70,6 +69,9 @@ const mapDispatchToProps = dispatch => {
         pci: 5,
         price:[79,83,91].random(),
       }))
+    },
+    onRemoveMotherboardClick: () => {
+      dispatch(removeMotherboard())
     },
   });
 }

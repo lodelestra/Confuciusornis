@@ -5,10 +5,7 @@ import Dashboard from './Dashboard';
 import Motherboard from './Motherboard';
 
 import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
 import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
-import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 
 import {withStyles} from 'material-ui/styles';
 import AddIcon from 'material-ui-icons/Add';
@@ -95,6 +92,8 @@ class Configurator extends Component {
           {/* motherboard */}
           <Motherboard
             data={this.props.motherboard}
+            onAddMotherboardClick={this.props.onAddMotherboardClick}
+            onRemoveMotherboardClick={this.props.onRemoveMotherboardClick}
           />
 
         </Grid>
@@ -105,10 +104,7 @@ class Configurator extends Component {
 
   componentDidMount(){
     console.log(this.props);
-    //this.props.onMount('test displatch to props');
-    this.props.onAddMotherboardClick();
   }
 }
 
 export default withStyles(styles)(Configurator);
-// export default Configurator;

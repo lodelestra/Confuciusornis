@@ -32,7 +32,7 @@ const styles = theme => ({
 const GPU = ( props ) => {
   const { classes } = props;
   return (
-    <Grid item xs={2}>
+    <Grid item xs={3}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
