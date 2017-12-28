@@ -71,7 +71,7 @@ const Dashboard = (props) => {
             :null}
             {props.PSU?
               <Typography component="p" color={props.rigPower>props.PSU.powerSupply?'error':'accent'}>
-                Power consemption: {props.rigPower}/{props.PSU.powerSupply} W
+                Power consumption: {props.rigPower}/{props.PSU.powerSupply} W
               </Typography>
             :null}
           </Paper>
