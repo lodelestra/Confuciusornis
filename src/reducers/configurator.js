@@ -1,5 +1,7 @@
 import Immutable from 'immutable';
 
+import * as actions from '../actions/index.js'
+
 let initialState = {
   initialMessage: 'hello',
   GPUs: new Immutable.List(),
@@ -31,6 +33,26 @@ const configurator = (state = initialState , action) => {
       return {
           ...state,
           GPUs: state.GPUs.update(action.index, gpu => ({...gpu, count:gpu.count-1})),
+        };
+    case 'ADD_MOTHERBOARD':
+      return {
+          ...state,
+          motherboard: action.motherboard,
+        };
+    case 'REMOVE_MOTHERBOARD':
+      return {
+          ...state,
+          motherboard: undefined,
+        };
+    case actions.ADD_PSU:
+      return {
+          ...state,
+          PSU: action.PSU,
+        };
+    case actions.REMOVE_PSU:
+      return {
+          ...state,
+          PSU: undefined,
         };
 
     default:

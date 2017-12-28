@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 
 import GPU from './GPU';
 import Dashboard from './Dashboard';
+import Motherboard from './Motherboard';
+import PSU from './PSU';
 
 import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
 import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
-import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 
 import {withStyles} from 'material-ui/styles';
 import AddIcon from 'material-ui-icons/Add';
@@ -56,11 +55,14 @@ class Configurator extends Component {
           <Dashboard
             rigHashRate={this.props.rigHashRate}
             rigPrice={this.props.rigPrice}
-            rigGPUPrice={this.props.rigPrice}
+            rigGPUPrice={this.props.rigGPUPrice}
             rigPower={this.props.rigPower}
+            rigPCIUsage={this.props.rigPCIUsage}
             ethPrice={this.props.ethPrice}
             rigRevenuByDay={this.props.rigRevenuByDay}
             rigRevenuByMonth={this.props.rigRevenuByMonth}
+            motherboard={this.props.motherboard}
+            PSU={this.props.PSU}
           />
             {/* gpu begin */}
           <Grid item xs={12}>
@@ -90,33 +92,17 @@ class Configurator extends Component {
 
           {/* end gpu */}
           {/* motherboard */}
-          <Grid className={classes.itemCategory} item xs={2}>
-            Motherboard
-              <Card className={classes.card}>
-                <CardMedia
-                  className={classes.media}
-                  image="/placeholder.png"
-                  title="Placeholder"
-                />
-                <CardContent>
-                  <Typography type="headline" component="h2">
-                   ASUS
-                  </Typography>
-                  <Typography component="p">
-                    socket 1115. 50W. 4 PCI
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button dense color="primary">
-                    delete
-                  </Button>
-                  <Button dense color="primary">
-                   add one
-                  </Button>
-                </CardActions>
-              </Card>
-          </Grid>
+          <Motherboard
+            data={this.props.motherboard}
+            onAddMotherboardClick={this.props.onAddMotherboardClick}
+            onRemoveMotherboardClick={this.props.onRemoveMotherboardClick}
+          />
 
+          <PSU
+            data={this.props.PSU}
+            onAddPSUClick={this.props.onAddPSUClick}
+            onRemovePSUClick={this.props.onRemovePSUClick}
+          />
         </Grid>
         {/* <div>{this.props.initialMessage}</div> */}
       </div>
@@ -125,9 +111,7 @@ class Configurator extends Component {
 
   componentDidMount(){
     console.log(this.props);
-    //this.props.onMount('test displatch to props');
   }
 }
 
 export default withStyles(styles)(Configurator);
-// export default Configurator;

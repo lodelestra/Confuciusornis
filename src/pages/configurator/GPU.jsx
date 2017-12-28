@@ -7,7 +7,6 @@ import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Button from 'material-ui/Button';
 import Divider from 'material-ui/Divider';
 import InboxIcon from 'material-ui-icons/Inbox';
-import DraftsIcon from 'material-ui-icons/Drafts';
 
 import {withStyles} from 'material-ui/styles';
 import AddIcon from 'material-ui-icons/Add';
@@ -33,7 +32,7 @@ const styles = theme => ({
 const GPU = ( props ) => {
   const { classes } = props;
   return (
-    <Grid item xs={2}>
+    <Grid item xs={3}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -77,7 +76,9 @@ const GPU = ( props ) => {
           >
             <RemoveIcon />
           </Button>
-           <p>{props.count}</p>
+          <Typography component="p">
+            {props.count}
+          </Typography>
           <Button
             dense
             color="primary"
