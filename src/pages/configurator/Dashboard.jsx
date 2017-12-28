@@ -65,12 +65,12 @@ const Dashboard = (props) => {
               Rig Check
             </Typography>
             {props.motherboard?
-              <Typography component="p" color={props.rigPCIUsage>props.motherboard.pci?'error':'default'}>
+              <Typography component="p" color={props.rigPCIUsage>props.motherboard.pci?'error':'accent'}>
                 PCI used: {props.rigPCIUsage}/{props.motherboard.pci}
               </Typography>
             :null}
-            <Typography component="p">
-              Power consemption: 450/650 W
+            <Typography component="p" color={props.rigPower>650?'error':'accent'}>
+              Power consemption: {props.rigPower}/650 W
             </Typography>
           </Paper>
         </Grid>

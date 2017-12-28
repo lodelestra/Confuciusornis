@@ -11,7 +11,10 @@ const mapStateToProps = state => {
   const rigHashRate = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.hashRate*gpu.count,0);
   const rigGPUPrice = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.price*gpu.count,0); //TODO
   const rigPrice = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.price*gpu.count,0);
-  const rigPower = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.power*gpu.count,0);
+  let rigPower = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.power*gpu.count,0);
+  if(state.configurator.motherboard){
+    rigPower += state.configurator.motherboard.power;
+  }
   const rigPCIUsage = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.count,0);
 
   //to load
@@ -68,6 +71,7 @@ const mapDispatchToProps = dispatch => {
         name: 'Asus 8',
         pci: 5,
         price:[79,83,91].random(),
+        power:[50,55,62].random(),
       }))
     },
     onRemoveMotherboardClick: () => {

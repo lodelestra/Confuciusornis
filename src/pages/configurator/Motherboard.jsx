@@ -47,19 +47,16 @@ const Motherboard = ( props ) => {
           />
           <CardContent>
             <Typography type="headline" component="h2">
-            {
-              props.data?
-                props.data.name
-              :null
-            }
+            { props.data.name }
             </Typography>
             <Typography component="p">
-              socket 1115. 50W.
-            {
-              props.data?
-                props.data.pci
-              :null
-            } PCI
+              socket 1115.
+            </Typography>
+            <Typography component="p">
+              {props.data.power}W.
+            </Typography>
+            <Typography component="p">
+              {props.data.pci} PCI
             </Typography>
           </CardContent>
           <div className={classes.storeList}>
