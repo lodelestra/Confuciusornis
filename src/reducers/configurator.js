@@ -5,6 +5,7 @@ import * as actions from '../actions/index.js'
 let initialState = {
   initialMessage: 'hello',
   GPUs: new Immutable.List(),
+  gpusDialogOpen: false,
 };
 
 const configurator = (state = initialState , action) => {
@@ -54,6 +55,16 @@ const configurator = (state = initialState , action) => {
           ...state,
           PSU: undefined,
         };
+    case actions.OPEN_GPUS_DIALOG:
+      return {
+        ...state,
+        gpusDialogOpen: true,
+      };
+    case actions.CLOSE_GPUS_DIALOG:
+      return {
+        ...state,
+        gpusDialogOpen: false,
+      };
 
     default:
       return state;

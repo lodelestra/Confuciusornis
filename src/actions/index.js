@@ -1,6 +1,9 @@
 export const ADD_PSU = 'ADD_PSU';
 export const REMOVE_PSU = 'REMOVE_PSU';
 
+export const OPEN_GPUS_DIALOG = 'OPEN_GPUS_DIALOG';
+export const CLOSE_GPUS_DIALOG = 'CLOSE_GPUS_DIALOG';
+
 export const addTest = text => {
   return {
     type: 'ADD_TEST',
@@ -60,5 +63,17 @@ export const addPSU = PSU => {
 export const removePSU = () => {
   return {
     type: REMOVE_PSU,
+  }
+}
+
+export const openGpusDialog = () => {
+  return {
+    type: OPEN_GPUS_DIALOG,
+  }
+}
+
+export const closeGpusDialog = () =>{
+  return {
+    type: CLOSE_GPUS_DIALOG,
   }
 }

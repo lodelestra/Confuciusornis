@@ -3,10 +3,7 @@ import { connect } from 'react-redux';
 import { addGPU, removeGPUAt, removeGPUCountAt, addGPUCountAt } from '../../actions';
 import { addMotherboard, removeMotherboard } from '../../actions';
 import { addPSU, removePSU } from '../../actions';
-
-const displayAlert = (text) => {
-  alert(text);
-}
+import { openGpusDialog, closeGpusDialog } from '../../actions';
 
 const mapStateToProps = state => {
   const rigHashRate = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.hashRate*gpu.count,0);
@@ -48,8 +45,7 @@ Array.prototype.random = function () {
 
 const mapDispatchToProps = dispatch => {
   return ({
-    onMount : displayAlert,
-    onAddGPUClick : () =>{
+    onMount : () =>{
       dispatch(addGPU({
         name:['R9 380','R9 390x','RX 480'].random(),
         hashRate:[27,12,34].random(),
@@ -57,6 +53,20 @@ const mapDispatchToProps = dispatch => {
         price:[250,320,340].random(),
         count:[2,3].random(),
       }))
+    },
+    onAddGPUClick : () =>{
+      dispatch(
+        openGpusDialog()
+      )
+    },
+    onGpusDialogClose : (value) =>{
+      //TODO dispatch add gpu by value
+      if(value){
+        console.log(value);
+      }
+      dispatch(
+        closeGpusDialog()
+      )
     },
     onRemoveGPUClick : (index) =>{
       dispatch(removeGPUAt(index))

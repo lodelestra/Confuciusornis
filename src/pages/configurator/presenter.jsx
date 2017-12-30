@@ -4,6 +4,7 @@ import GPU from './GPU';
 import Dashboard from './Dashboard';
 import Motherboard from './Motherboard';
 import PSU from './PSU';
+import GPUsDialog from './GPUsDialog';
 
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
@@ -11,7 +12,6 @@ import Typography from 'material-ui/Typography';
 
 import {withStyles} from 'material-ui/styles';
 import AddIcon from 'material-ui-icons/Add';
-
 
 const styles = theme => ({
   container: {
@@ -46,17 +46,38 @@ const styles = theme => ({
   },
 })
 
+const gpus = ['rx 480','r9 390x'];
+
 class Configurator extends Component {
-  state = {  }
+  state = {
+    gpusDialogOpen: true,
+    gpusSelectedValue: gpus[1],
+  }
 
   componentWillMount(){
     //TODO remove
-    this.props.onAddGPUClick();
+    this.props.onMount();
   }
+
+  handleClickGPUsDialogOpen = () => {
+    this.setState({
+      gpusDialogOpen: true,
+    });
+  };
+
+  handleGpusDialogClose = value => {
+    this.setState({ selectedValue: value, gpusDialogOpen: false });
+  };
+
   render() {
     const { classes } = this.props;
     return (
       <div className={classes.container}>
+        <GPUsDialog
+          gpus={gpus}
+          open={this.props.gpusDialogOpen}
+          onClose={this.props.onGpusDialogClose}
+        />
         <Grid container spacing={24}>
           <Dashboard
             rigHashRate={this.props.rigHashRate}
