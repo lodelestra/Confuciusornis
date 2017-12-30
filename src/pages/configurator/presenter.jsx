@@ -59,16 +59,6 @@ class Configurator extends Component {
     this.props.onMount();
   }
 
-  handleClickGPUsDialogOpen = () => {
-    this.setState({
-      gpusDialogOpen: true,
-    });
-  };
-
-  handleGpusDialogClose = value => {
-    this.setState({ selectedValue: value, gpusDialogOpen: false });
-  };
-
   render() {
     const { classes } = this.props;
     return (
