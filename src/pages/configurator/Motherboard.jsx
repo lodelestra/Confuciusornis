@@ -25,10 +25,6 @@ const styles = theme => ({
   storeList: {
     margin: theme.spacing.unit,
   },
-  addButton: {
-    verticalAlign: 'middle !important',
-    marginTop: '50px',
-  },
 });
 
 const Motherboard = ( props ) => {

@@ -7,6 +7,7 @@ import PSU from './PSU';
 
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
+import Typography from 'material-ui/Typography';
 
 import {withStyles} from 'material-ui/styles';
 import AddIcon from 'material-ui-icons/Add';
@@ -18,6 +19,7 @@ const styles = theme => ({
     flexWrap: 'wrap',
     margin: theme.spacing.unit,
     marginRight: theme.spacing.unit,
+    textAlign: 'center',
   },
   textField: {
     marginLeft: theme.spacing.unit,
@@ -37,6 +39,10 @@ const styles = theme => ({
   },
   itemCategory: {
     backgroundColor: '#eee',
+  },
+  itemCard: {
+    // marginLeft: theme.spacing.unit,
+    height: '100%',
   },
 })
 
@@ -66,7 +72,9 @@ class Configurator extends Component {
           />
             {/* gpu begin */}
           <Grid item xs={12}>
-            GPU
+            <Typography type="headline" component="h2">
+              GPUs
+            </Typography>
             <Grid container alignItems='center' spacing={24}>
               {this.props.GPUs.map( (gpu, index) =>
                 <GPU
@@ -93,12 +101,14 @@ class Configurator extends Component {
           {/* end gpu */}
           {/* motherboard */}
           <Motherboard
+            className={classes.itemCard}
             data={this.props.motherboard}
             onAddMotherboardClick={this.props.onAddMotherboardClick}
             onRemoveMotherboardClick={this.props.onRemoveMotherboardClick}
           />
 
           <PSU
+            className={classes.itemCard}
             data={this.props.PSU}
             onAddPSUClick={this.props.onAddPSUClick}
             onRemovePSUClick={this.props.onRemovePSUClick}
