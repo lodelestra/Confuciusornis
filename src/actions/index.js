@@ -3,6 +3,7 @@ export const REMOVE_PSU = 'REMOVE_PSU';
 
 export const OPEN_GPUS_DIALOG = 'OPEN_GPUS_DIALOG';
 export const CLOSE_GPUS_DIALOG = 'CLOSE_GPUS_DIALOG';
+export const CHANGE_GPUS_DIALOG_FILTERS = 'CHANGE_GPUS_DIALOG_FILTERS';
 
 export const addTest = text => {
   return {
@@ -75,5 +76,12 @@ export const openGpusDialog = () => {
 export const closeGpusDialog = () =>{
   return {
     type: CLOSE_GPUS_DIALOG,
+  }
+}
+
+export const changeGpusDialogFilters = (filters) => {
+  return {
+    type: CHANGE_GPUS_DIALOG_FILTERS,
+    filters,
   }
 }

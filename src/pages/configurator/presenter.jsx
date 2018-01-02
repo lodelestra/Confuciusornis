@@ -55,7 +55,6 @@ class Configurator extends Component {
   }
 
   componentWillMount(){
-    //TODO remove
     this.props.onMount();
   }
 
@@ -64,9 +63,11 @@ class Configurator extends Component {
     return (
       <div className={classes.container}>
         <GPUsDialog
-          gpus={gpus}
+          gpus={this.props.filteredGPUs}
           open={this.props.gpusDialogOpen}
           onClose={this.props.onGpusDialogClose}
+          filters={this.props.gpusDialogFilters}
+          handleFilterVendorChange={this.props.onChangeGpusDialogFilters}
         />
         <Grid container spacing={24}>
           <Dashboard

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addGPU, removeGPUAt, removeGPUCountAt, addGPUCountAt } from '../../actions';
 import { addMotherboard, removeMotherboard } from '../../actions';
 import { addPSU, removePSU } from '../../actions';
-import { openGpusDialog, closeGpusDialog } from '../../actions';
+import { openGpusDialog, closeGpusDialog, changeGpusDialogFilters } from '../../actions';
 
 const mapStateToProps = state => {
   const rigHashRate = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.hashRate*gpu.count,0);
@@ -16,15 +16,21 @@ const mapStateToProps = state => {
   const rigPCIUsage = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.count,0);
 
   //to load
-  const ethPrice = 750.63;
-  const netHashGH = 148106.38;
-  const blockTime = 14.17; //sec
+  const ethPrice = 876.78;
+  const netHashGH = 159441.8475;
+  const blockTime = 14.2; //sec
 
   let netEthPerDay = 3*24*60*60 / blockTime;
   const rigEthPerDay = (netEthPerDay*rigHashRate*1e6)/(netHashGH * 1e9)
 
   const rigRevenuByDay = rigEthPerDay*ethPrice;
   const rigRevenuByMonth = 70;
+
+  const filteredGPUs = state.configurator.allGPUs.filter(
+    gpu=>
+      (gpu.vendor===state.configurator.gpusDialogFilters.vendor || state.configurator.gpusDialogFilters.vendor==='All')
+    )
+    .toArray();
 
   return {
     ...state.configurator,
@@ -36,6 +42,7 @@ const mapStateToProps = state => {
     ethPrice,
     rigRevenuByDay,
     rigRevenuByMonth,
+    filteredGPUs,
   }
 }
 
@@ -59,14 +66,20 @@ const mapDispatchToProps = dispatch => {
         openGpusDialog()
       )
     },
-    onGpusDialogClose : (value) =>{
-      //TODO dispatch add gpu by value
-      if(value){
-        console.log(value);
+    onGpusDialogClose : (gpu) =>{
+      if(gpu){
+        const newGPU = {
+          ...gpu,
+          count: 1,
+        }
+        dispatch(addGPU(newGPU))
       }
       dispatch(
         closeGpusDialog()
       )
+    },
+    onChangeGpusDialogFilters : (filters) =>{
+      dispatch(changeGpusDialogFilters(filters))
     },
     onRemoveGPUClick : (index) =>{
       dispatch(removeGPUAt(index))

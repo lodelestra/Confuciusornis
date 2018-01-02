@@ -2,10 +2,40 @@ import Immutable from 'immutable';
 
 import * as actions from '../actions/index.js'
 
+const defaultGPUs = new Immutable.List(
+  [
+    {
+      vendor: 'AMD',
+      name:'R9 380',
+      hashRate:22,
+      power: 163,
+      price: 250,
+    },
+    {
+      vendor: 'AMD',
+      name:'Rx 480',
+      hashRate:20,
+      power: 140,
+      price: 200,
+    },
+    {
+      vendor: 'NVIDIA',
+      name:'GTX 1060',
+      hashRate:17,
+      power: 140,
+      price: 220,
+    },
+  ]
+);
+
 let initialState = {
   initialMessage: 'hello',
   GPUs: new Immutable.List(),
+  allGPUs: defaultGPUs,
   gpusDialogOpen: false,
+  gpusDialogFilters: {
+    vendor:'All',
+  },
 };
 
 const configurator = (state = initialState , action) => {
@@ -64,6 +94,11 @@ const configurator = (state = initialState , action) => {
       return {
         ...state,
         gpusDialogOpen: false,
+      };
+    case actions.CHANGE_GPUS_DIALOG_FILTERS:
+      return {
+        ...state,
+        gpusDialogFilters: action.filters,
       };
 
     default:
