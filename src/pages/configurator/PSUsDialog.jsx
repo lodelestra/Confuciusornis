@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import Avatar from 'material-ui/Avatar';
-import List, { ListItem, ListItemAvatar, ListItemText } from 'material-ui/List';
+import List, { ListItem, ListItemText } from 'material-ui/List';
 import Dialog, { DialogTitle } from 'material-ui/Dialog';
 import Divider from 'material-ui/Divider';
-import PersonIcon from 'material-ui-icons/Person';
 import blue from 'material-ui/colors/blue';
 
 const styles = theme => ({
