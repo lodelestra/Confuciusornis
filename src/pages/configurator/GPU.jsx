@@ -32,7 +32,7 @@ const styles = theme => ({
 const GPU = ( props ) => {
   const { classes } = props;
   return (
-    <Grid item xs={3}>
+    <Grid item xs={2}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -46,7 +46,7 @@ const GPU = ( props ) => {
           <Typography component="p">
             {props.hashRate}Mh/s   {props.power}Watt
             <br/>
-            $/Mhs
+            {(props.price/props.hashRate).toFixed(2)}$/Mhs
           </Typography>
         </CardContent>
         <div className={classes.storeList}>

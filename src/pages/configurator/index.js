@@ -3,10 +3,7 @@ import { connect } from 'react-redux';
 import { addGPU, removeGPUAt, removeGPUCountAt, addGPUCountAt } from '../../actions';
 import { addMotherboard, removeMotherboard } from '../../actions';
 import { addPSU, removePSU } from '../../actions';
-
-const displayAlert = (text) => {
-  alert(text);
-}
+import { openGpusDialog, closeGpusDialog, changeGpusDialogFilters } from '../../actions';
 
 const mapStateToProps = state => {
   const rigHashRate = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.hashRate*gpu.count,0);
@@ -19,15 +16,21 @@ const mapStateToProps = state => {
   const rigPCIUsage = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.count,0);
 
   //to load
-  const ethPrice = 750.63;
-  const netHashGH = 148106.38;
-  const blockTime = 14.17; //sec
+  const ethPrice = 876.78;
+  const netHashGH = 159441.8475;
+  const blockTime = 14.2; //sec
 
   let netEthPerDay = 3*24*60*60 / blockTime;
   const rigEthPerDay = (netEthPerDay*rigHashRate*1e6)/(netHashGH * 1e9)
 
   const rigRevenuByDay = rigEthPerDay*ethPrice;
   const rigRevenuByMonth = 70;
+
+  const filteredGPUs = state.configurator.allGPUs.filter(
+    gpu=>
+      (gpu.vendor===state.configurator.gpusDialogFilters.vendor || state.configurator.gpusDialogFilters.vendor==='All')
+    )
+    .toArray();
 
   return {
     ...state.configurator,
@@ -39,6 +42,7 @@ const mapStateToProps = state => {
     ethPrice,
     rigRevenuByDay,
     rigRevenuByMonth,
+    filteredGPUs,
   }
 }
 
@@ -48,8 +52,7 @@ Array.prototype.random = function () {
 
 const mapDispatchToProps = dispatch => {
   return ({
-    onMount : displayAlert,
-    onAddGPUClick : () =>{
+    onMount : () =>{
       dispatch(addGPU({
         name:['R9 380','R9 390x','RX 480'].random(),
         hashRate:[27,12,34].random(),
@@ -57,6 +60,26 @@ const mapDispatchToProps = dispatch => {
         price:[250,320,340].random(),
         count:[2,3].random(),
       }))
+    },
+    onAddGPUClick : () =>{
+      dispatch(
+        openGpusDialog()
+      )
+    },
+    onGpusDialogClose : (gpu) =>{
+      if(gpu){
+        const newGPU = {
+          ...gpu,
+          count: 1,
+        }
+        dispatch(addGPU(newGPU))
+      }
+      dispatch(
+        closeGpusDialog()
+      )
+    },
+    onChangeGpusDialogFilters : (filters) =>{
+      dispatch(changeGpusDialogFilters(filters))
     },
     onRemoveGPUClick : (index) =>{
       dispatch(removeGPUAt(index))
