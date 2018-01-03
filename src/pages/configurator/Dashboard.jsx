@@ -34,11 +34,11 @@ const Dashboard = (props) => {
               <br />
               GPUs price {props.rigGPUPrice} $
               <br />
-              total Price {props.rigPrice} $
+              Total Price {props.rigPrice} $
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={2}>
           <Paper className={classes.itemCard} >
             <Typography type="title">
               Eth market
@@ -49,7 +49,7 @@ const Dashboard = (props) => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={2}>
           <Paper className={classes.itemCard} >
             <Typography type="title">
               Rig revenu
@@ -63,6 +63,24 @@ const Dashboard = (props) => {
               <br />
               Year {(props.rigRevenuByDay*365).toFixed(2)} $
               <br />
+            </Typography>
+          </Paper>
+        </Grid>
+        <Grid item xs={2}>
+          <Paper className={classes.itemCard} >
+            <Typography type="title">
+              Return On Investment
+            </Typography>
+            <Typography component="p">
+              GPUs ROI in
+              <br />
+              {(props.rigGPUPrice/props.rigRevenuByDay).toFixed(0)} Days
+              or {(props.rigGPUPrice/props.rigRevenuByDay/31).toFixed(1)} Months
+              <br />
+              Total rig ROI in
+              <br />
+              {(props.rigPrice/props.rigRevenuByDay).toFixed(0)} Days
+              or {(props.rigPrice/props.rigRevenuByDay/31).toFixed(1)} Months
             </Typography>
           </Paper>
         </Grid>

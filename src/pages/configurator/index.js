@@ -8,11 +8,16 @@ import { openPsusDialog, closePsusDialog } from '../../actions';
 
 const mapStateToProps = state => {
   const rigHashRate = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.hashRate*gpu.count,0);
-  const rigGPUPrice = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.price*gpu.count,0); //TODO
-  const rigPrice = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.price*gpu.count,0);
+  const rigGPUPrice = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.price*gpu.count,0);
+  let rigPrice = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.price*gpu.count,0);
   let rigPower = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.power*gpu.count,0);
+
+  if(state.configurator.PSU){
+    rigPrice += state.configurator.PSU.price;
+  }
   if(state.configurator.motherboard){
     rigPower += state.configurator.motherboard.power;
+    rigPrice += state.configurator.motherboard.price;
   }
   const rigPCIUsage = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.count,0);
 
