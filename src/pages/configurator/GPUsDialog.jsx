@@ -49,8 +49,8 @@ class GPUsDialog extends React.Component {
           <FormControl component="fieldset" className={classes.formControl}>
             <FormLabel component="legend">Vendor</FormLabel>
             <RadioGroup
-              aria-label="gender"
-              name="gender1"
+              aria-label="vendor"
+              name="vendor1"
               className={classes.group}
               value={this.props.filters.vendor}
               onChange={this.handleVendorChange}
@@ -67,9 +67,10 @@ class GPUsDialog extends React.Component {
             {gpus.map((gpu, index) => (
               <ListItem button onClick={() => this.props.onClose(gpu)} key={index}>
                 <ListItemText primary={gpu.name} />
-                <ListItemText primary={`${gpu.hashRate} Mhs/s`} />
+                <ListItemText primary={`${gpu.hashRate} Mhs`} />
                 <ListItemText primary={`${gpu.price} $`} />
                 <ListItemText primary={`${gpu.vendor}`} />
+                <ListItemText primary={`${(gpu.price/gpu.hashRate).toFixed(2)} $/Mhs`} />
               </ListItem>
             ))}
           </List>

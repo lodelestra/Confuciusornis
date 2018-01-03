@@ -20,9 +20,10 @@ const Dashboard = (props) => {
       <Grid container spacing={8}>
         <Grid item xs={3}>
           <Paper className={classes.itemCard} >
+            <Typography type="title">
+              Rig stats
+            </Typography>
             <Typography component="p">
-              rig stats
-              <br />
               hash rate {props.rigHashRate} Mhs
               <br />
               {props.rigPower} Watt
@@ -35,8 +36,10 @@ const Dashboard = (props) => {
         </Grid>
         <Grid item xs={3}>
           <Paper className={classes.itemCard} >
+            <Typography type="title">
+              Eth market
+            </Typography>
             <Typography component="p">
-              eth cours
               <br />
               Eth price {props.ethPrice} $
             </Typography>
@@ -44,9 +47,10 @@ const Dashboard = (props) => {
         </Grid>
         <Grid item xs={3}>
           <Paper className={classes.itemCard} >
+            <Typography type="title">
+              Rig revenu
+            </Typography>
             <Typography component="p">
-              rig revenu
-              <br />
               Day {props.rigRevenuByDay.toFixed(2)} $
               <br />
               Week {(props.rigRevenuByDay*7).toFixed(2)} $
@@ -60,7 +64,7 @@ const Dashboard = (props) => {
         </Grid>
         <Grid item xs={3}>
           <Paper className={classes.itemCard} >
-            <Typography component="p">
+            <Typography type="title">
               Rig Check
             </Typography>
             {props.motherboard?
