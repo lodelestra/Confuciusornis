@@ -5,11 +5,15 @@ import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 
 import {withStyles} from 'material-ui/styles';
+import { orange } from 'material-ui/colors';
 
 const styles = theme => ({
   itemCard: {
     // marginLeft: theme.spacing.unit,
     height: "100%",
+  },
+  warning: {
+    color: orange[500],
   },
 })
 
@@ -71,12 +75,21 @@ const Dashboard = (props) => {
               <Typography component="p" color={props.rigPCIUsage>props.motherboard.pci?'error':'accent'}>
                 PCI used: {props.rigPCIUsage}/{props.motherboard.pci}
               </Typography>
-            :null}
+                :
+              <Typography className={classes.warning} component="p">
+                PCI used: {props.rigPCIUsage} / ?
+              </Typography>
+            }
             {props.PSU?
               <Typography component="p" color={props.rigPower>props.PSU.powerSupply?'error':'accent'}>
                 Power consumption: {props.rigPower}/{props.PSU.powerSupply} W
               </Typography>
-            :null}
+                :
+              <Typography className={classes.warning} component="p">
+                Power consumption: {props.rigPower}/ ? W
+              </Typography>
+
+            }
           </Paper>
         </Grid>
       </Grid>

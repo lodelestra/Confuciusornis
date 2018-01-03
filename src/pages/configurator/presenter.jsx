@@ -5,6 +5,7 @@ import Dashboard from './Dashboard';
 import Motherboard from './Motherboard';
 import PSU from './PSU';
 import GPUsDialog from './GPUsDialog';
+import PSUsDialog from './PSUsDialog';
 
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
@@ -46,12 +47,9 @@ const styles = theme => ({
   },
 })
 
-const gpus = ['rx 480','r9 390x'];
 
 class Configurator extends Component {
   state = {
-    gpusDialogOpen: true,
-    gpusSelectedValue: gpus[1],
   }
 
   componentWillMount(){
@@ -68,6 +66,11 @@ class Configurator extends Component {
           onClose={this.props.onGpusDialogClose}
           filters={this.props.gpusDialogFilters}
           handleFilterVendorChange={this.props.onChangeGpusDialogFilters}
+        />
+        <PSUsDialog
+          psus={this.props.allPSUs.toArray()}
+          open={this.props.psusDialogOpen}
+          onClose={this.props.onPsusDialogClose}
         />
         <Grid container spacing={24}>
           <Dashboard
