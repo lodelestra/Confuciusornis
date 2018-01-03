@@ -28,23 +28,42 @@ const defaultGPUs = new Immutable.List(
   ]
 );
 
+const defaultPSUs = new Immutable.List(
+  [
+    {
+        name: 'CX750M',
+        vendor: 'Corsair',
+        price: 79,
+        powerSupply: 750,
+    },
+    {
+        name: 'CX850M',
+        vendor: 'Corsair',
+        price: 109,
+        powerSupply: 850,
+    },
+    {
+        name: '750 GQ',
+        vendor: 'EVGA',
+        price: 94.99,
+        powerSupply: 750,
+    },
+  ]
+);
+
 let initialState = {
-  initialMessage: 'hello',
   GPUs: new Immutable.List(),
   allGPUs: defaultGPUs,
   gpusDialogOpen: false,
   gpusDialogFilters: {
     vendor:'All',
   },
+  allPSUs: defaultPSUs,
+  psusDialogOpen: false,
 };
 
 const configurator = (state = initialState , action) => {
   switch (action.type) {
-    case 'ADD_TEST':
-      return {
-          ...state,
-          id: action.id,
-        };
     case 'ADD_GPU':
       return {
           ...state,
@@ -99,6 +118,16 @@ const configurator = (state = initialState , action) => {
       return {
         ...state,
         gpusDialogFilters: action.filters,
+      };
+    case actions.OPEN_PSUS_DIALOG:
+      return {
+        ...state,
+        psusDialogOpen: true,
+      };
+    case actions.CLOSE_PSUS_DIALOG:
+      return {
+        ...state,
+        psusDialogOpen: false,
       };
 
     default:

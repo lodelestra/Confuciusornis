@@ -4,6 +4,7 @@ import { addGPU, removeGPUAt, removeGPUCountAt, addGPUCountAt } from '../../acti
 import { addMotherboard, removeMotherboard } from '../../actions';
 import { addPSU, removePSU } from '../../actions';
 import { openGpusDialog, closeGpusDialog, changeGpusDialogFilters } from '../../actions';
+import { openPsusDialog, closePsusDialog } from '../../actions';
 
 const mapStateToProps = state => {
   const rigHashRate = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.hashRate*gpu.count,0);
@@ -103,11 +104,13 @@ const mapDispatchToProps = dispatch => {
       dispatch(removeMotherboard())
     },
     onAddPSUClick: () => {
-      dispatch(addPSU({
-        name: 'corsair',
-        price:[79,83,91].random(),
-        powerSupply:[650,750,800].random(),
-      }))
+      dispatch(openPsusDialog())
+    },
+    onPsusDialogClose: (psu) => {
+      if(psu){
+        dispatch(addPSU(psu))
+      }
+      dispatch(closePsusDialog())
     },
     onRemovePSUClick: () => {
       dispatch(removePSU())
