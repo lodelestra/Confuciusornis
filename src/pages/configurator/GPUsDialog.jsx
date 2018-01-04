@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import List, { ListItem, ListItemText } from 'material-ui/List';
 import Dialog, { DialogTitle } from 'material-ui/Dialog';
 import Divider from 'material-ui/Divider';
 import blue from 'material-ui/colors/blue';
 
 import Radio, { RadioGroup } from 'material-ui/Radio';
 import { FormLabel, FormControl, FormControlLabel } from 'material-ui/Form';
+
+import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 
 const styles = theme => ({
   avatar: {
@@ -21,6 +22,16 @@ const styles = theme => ({
     margin: `${theme.spacing.unit}px 0`,
     display: 'inline',
   },
+  table: {
+    width: 'auto',
+  },
+  tableWrapper: {
+    overflowX: 'auto',
+  },
+  tableCell: {
+    paddingRight: 10,
+    paddingLeft: 10,
+  }
 });
 
 class GPUsDialog extends React.Component {
@@ -60,18 +71,35 @@ class GPUsDialog extends React.Component {
           </FormControl>
         </div>
         <Divider />
-        <div>
-          <List>
-            {gpus.map((gpu, index) => (
-              <ListItem button onClick={() => this.props.onClose(gpu)} key={index}>
-                <ListItemText primary={gpu.name} />
-                <ListItemText primary={`${gpu.hashRate} Mhs`} />
-                <ListItemText primary={`${gpu.price} $`} />
-                <ListItemText primary={`${gpu.vendor}`} />
-                <ListItemText primary={`${(gpu.price/gpu.hashRate).toFixed(2)} $/Mhs`} />
-              </ListItem>
-            ))}
-          </List>
+        <div className={classes.tableWrapper}>
+          <Table className={classes.table}>
+            <TableHead>
+              <TableRow>
+                <TableCell>Name</TableCell>
+                <TableCell numeric>HashRate (Mhs)</TableCell>
+                <TableCell numeric>Price ($)</TableCell>
+                <TableCell>Vendor</TableCell>
+                <TableCell numeric>Hash price ($/Mhs)</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {gpus.map((gpu, index) => {
+                return (
+                  <TableRow
+                    hover
+                    key={index}
+                    onClick={() => this.props.onClose(gpu)}
+                  >
+                    <TableCell className={classes.tableCell}>{gpu.name}</TableCell>
+                    <TableCell numeric>{gpu.hashRate}</TableCell>
+                    <TableCell numeric>{gpu.price.toFixed(2)}</TableCell>
+                    <TableCell className={classes.tableCell}>{gpu.vendor}</TableCell>
+                    <TableCell numeric>{(gpu.price/gpu.hashRate).toFixed(2)}</TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
         </div>
       </Dialog>
     );
