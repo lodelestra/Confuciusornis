@@ -5,6 +5,13 @@ import * as actions from '../actions/index.js'
 const defaultGPUs = new Immutable.List(
   [
     {
+      vendor: 'NVIDIA',
+      name:'Geforce GTX 1060 6GB',
+      hashRate:23,
+      power: 120,
+      price: 264.99,
+    },
+    {
       vendor: 'AMD',
       name:'R9 380',
       hashRate:22,
@@ -35,15 +42,24 @@ const defaultPSUs = new Immutable.List(
         vendor: 'Corsair',
         price: 79,
         powerSupply: 750,
+        pictureUrl: 'products/PSUs/Corsair_CX750M.jpg'
     },
     {
         name: 'CX850M',
         vendor: 'Corsair',
         price: 109,
         powerSupply: 850,
+        pictureUrl: 'products/PSUs/Corsair_CX850M.jpg'
     },
     {
         name: '750 GQ',
+        vendor: 'EVGA',
+        price: 94.99,
+        powerSupply: 750,
+        pictureUrl: 'products/PSUs/EVGA_750GQ.jpg'
+    },
+    {
+        name: 'placeholder test',
         vendor: 'EVGA',
         price: 94.99,
         powerSupply: 750,
