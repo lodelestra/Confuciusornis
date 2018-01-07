@@ -8,6 +8,9 @@ export const CHANGE_GPUS_DIALOG_FILTERS = 'CHANGE_GPUS_DIALOG_FILTERS';
 export const OPEN_PSUS_DIALOG = 'OPEN_PSUS_DIALOG';
 export const CLOSE_PSUS_DIALOG = 'CLOSE_PSUS_DIALOG';
 
+export const OPEN_MOTHERBOARDS_DIALOG = 'OPEN_MOTHERBOARDS_DIALOG';
+export const CLOSE_MOTHERBOARDS_DIALOG = 'CLOSE_MOTHERBOARDS_DIALOG';
+
 export const addGPU = GPU => {
   return {
     type: 'ADD_GPU',
@@ -90,5 +93,17 @@ export const openPsusDialog = () => {
 export const closePsusDialog = () =>{
   return {
     type: CLOSE_PSUS_DIALOG,
+  }
+}
+
+export const openMotherboardsDialog = () => {
+  return {
+    type: OPEN_MOTHERBOARDS_DIALOG,
+  }
+}
+
+export const closeMotherboardsDialog = () => {
+  return {
+    type: CLOSE_MOTHERBOARDS_DIALOG,
   }
 }

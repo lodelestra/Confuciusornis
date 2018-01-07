@@ -5,6 +5,7 @@ import { addMotherboard, removeMotherboard } from '../../actions';
 import { addPSU, removePSU } from '../../actions';
 import { openGpusDialog, closeGpusDialog, changeGpusDialogFilters } from '../../actions';
 import { openPsusDialog, closePsusDialog } from '../../actions';
+import { openMotherboardsDialog, closeMotherboardsDialog } from '../../actions';
 
 const mapStateToProps = state => {
   const rigHashRate = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.hashRate*gpu.count,0);
@@ -97,13 +98,13 @@ const mapDispatchToProps = dispatch => {
       dispatch(addGPUCountAt(index))
     },
     onAddMotherboardClick: () => {
-      dispatch(addMotherboard({
-        name: 'Asus 8',
-        socket: [1117,1115,1200].random(),
-        pci: 5,
-        price:[79,83,91].random(),
-        power:[50,55,62].random(),
-      }))
+      dispatch(openMotherboardsDialog())
+    },
+    onMotherboardsDialogClose : (motherboard) =>{
+      if(motherboard){
+        dispatch(addMotherboard(motherboard))
+      }
+      dispatch(closeMotherboardsDialog())
     },
     onRemoveMotherboardClick: () => {
       dispatch(removeMotherboard())

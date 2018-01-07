@@ -68,6 +68,25 @@ const defaultPSUs = new Immutable.List(
   ]
 );
 
+const defaultMotherboards = new Immutable.List(
+  [
+    {
+      name: 'Asus 8',
+      socket: 1117,
+      pci: 5,
+      price: 83,
+      power: 50,
+    },
+    {
+      name: 'Asus 8',
+      socket: 1115,
+      pci: 4,
+      price: 93,
+      power: 60,
+    }
+  ]
+);
+
 let initialState = {
   GPUs: new Immutable.List(),
   allGPUs: defaultGPUs,
@@ -77,6 +96,8 @@ let initialState = {
   },
   allPSUs: defaultPSUs,
   psusDialogOpen: false,
+  allMotherboards: defaultMotherboards,
+  motherboardsDialogOpen: false,
 };
 
 const configurator = (state = initialState , action) => {
@@ -145,6 +166,16 @@ const configurator = (state = initialState , action) => {
       return {
         ...state,
         psusDialogOpen: false,
+      };
+    case actions.OPEN_MOTHERBOARDS_DIALOG:
+      return {
+        ...state,
+        motherboardsDialogOpen: true,
+      };
+    case actions.CLOSE_MOTHERBOARDS_DIALOG:
+      return {
+        ...state,
+        motherboardsDialogOpen: false,
       };
 
     default:
