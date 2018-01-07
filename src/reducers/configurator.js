@@ -10,6 +10,7 @@ const defaultGPUs = new Immutable.List(
       hashRate:23,
       power: 120,
       price: 264.99,
+      pictureUrl: 'products/GPUs/GeForce_GTX_1060.png'
     },
     {
       vendor: 'AMD',
