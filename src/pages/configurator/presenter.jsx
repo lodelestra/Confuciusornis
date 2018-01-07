@@ -100,6 +100,7 @@ class Configurator extends Component {
                   power={gpu.power}
                   count={gpu.count}
                   price={gpu.price}
+                  pictureUrl={gpu.pictureUrl}
                   onRemoveGPUClick={this.props.onRemoveGPUClick}
                   onRemoveGPUCountClick={this.props.onRemoveGPUCountClick}
                   onAddGPUCountClick={this.props.onAddGPUCountClick}

@@ -27,6 +27,11 @@ const styles = theme => ({
   storeList: {
     margin: theme.spacing.unit,
   },
+  mediaHolder: {
+    height: 200,
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+  },
 });
 
 const GPU = ( props ) => {
@@ -34,11 +39,20 @@ const GPU = ( props ) => {
   return (
     <Grid item xs={2}>
       <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image="/placeholder.png"
-          title="Placeholder"
-        />
+        {(props.pictureUrl!==undefined)?
+          <CardMedia
+            className={classes.mediaHolder}
+            image={props.pictureUrl}
+            src={props.pictureUrl}
+            title='product picture'
+          />
+          :
+          <CardMedia
+            className={classes.media}
+            image="/placeholder.png"
+            title="Placeholder"
+          />
+        }
         <CardContent>
           <Typography type="headline" component="h2">
             {props.name}
