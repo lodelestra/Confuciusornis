@@ -71,18 +71,24 @@ const defaultPSUs = new Immutable.List(
 const defaultMotherboards = new Immutable.List(
   [
     {
-      name: 'Asus 8',
-      socket: 1117,
-      pci: 5,
-      price: 83,
+      name: 'GA-B250M-DS3H',
+      vendor: 'GIGABYTE',
+      socket: 'LGA 1151',
+      pci: 3,
+      price: 59.99,
       power: 50,
+      formFactor: 'Micro ATX',
+      pictureUrl: 'products/motherboards/GA-B250M-DS3H.png'
     },
     {
-      name: 'Asus 8',
-      socket: 1115,
-      pci: 4,
-      price: 93,
+      name: 'PRIME Z270-A',
+      vendor: 'ASUS',
+      socket: 'LGA 1151',
+      pci: 5,
+      price: 159,
       power: 60,
+      formFactor: 'ATX',
+      pictureUrl: 'products/motherboards/PRIME-Z270-A.png'
     }
   ]
 );

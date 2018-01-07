@@ -67,11 +67,21 @@ const Motherboard = ( props ) => {
       </Typography>
       {props.data?
         <Card className={classes.card}>
-          <CardMedia
-            className={classes.media}
-            image="/placeholder.png"
-            title="Placeholder"
-          />
+          {(props.data!==undefined && props.data.pictureUrl)?
+            <CardMedia
+              className={classes.mediaHolder}
+              image={props.data.pictureUrl}
+              src={props.data.pictureUrl}
+              title='product picture'
+            />
+              :
+            <CardMedia
+              className={classes.mediaHolder}
+              image="/placeholders/motherboard.jpg"
+              src="/placeholders/motherboard.jpg"
+              title="Placeholder"
+            />
+          }
           <CardContent>
             <Typography type="headline" component="h2">
             { props.data.name }

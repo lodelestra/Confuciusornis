@@ -41,6 +41,7 @@ class MotherboardsDialog extends React.Component {
                 <TableCell numeric>socket</TableCell>
                 <TableCell numeric>Price ($)</TableCell>
                 <TableCell numeric>Pci</TableCell>
+                <TableCell numeric>Form Factor</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -51,10 +52,11 @@ class MotherboardsDialog extends React.Component {
                     key={index}
                     onClick={() => this.props.onClose(motherboard)}
                   >
-                    <TableCell className={classes.tableCell}>{motherboard.name}</TableCell>
+                    <TableCell className={classes.tableCell}>{`${motherboard.vendor} ${motherboard.name}`}</TableCell>
                     <TableCell numeric>{motherboard.socket}</TableCell>
                     <TableCell numeric>{motherboard.price.toFixed(2)}</TableCell>
                     <TableCell className={classes.tableCell}>{motherboard.pci}</TableCell>
+                    <TableCell className={classes.tableCell}>{motherboard.formFactor}</TableCell>
                   </TableRow>
                 );
               })}
