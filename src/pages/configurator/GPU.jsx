@@ -11,6 +11,7 @@ import InboxIcon from 'material-ui-icons/Inbox';
 import {withStyles} from 'material-ui/styles';
 import AddIcon from 'material-ui-icons/Add';
 import RemoveIcon from 'material-ui-icons/Remove';
+import {AmazonIcon} from '../../components/ShopsIcon';
 
 const styles = theme => ({
   container: {
@@ -31,6 +32,9 @@ const styles = theme => ({
     height: 200,
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
+  },
+  links: {
+    textDecoration: 'none',
   },
 });
 
@@ -66,12 +70,18 @@ const GPU = ( props ) => {
         <div className={classes.storeList}>
           <Divider />
           <List>
-            <ListItem button>
-              <ListItemIcon>
-                <InboxIcon />
-              </ListItemIcon>
-              <ListItemText primary={`${props.price} $`} />
-            </ListItem>
+            <a
+              className={classes.links}
+              target="_blank"
+              href={props.productUrl}
+            >
+              <ListItem button >
+                <ListItemIcon>
+                  <AmazonIcon />
+                </ListItemIcon>
+                <ListItemText primary={`${props.price} $`} />
+              </ListItem>
+            </a>
           </List>
         </div>
         <CardActions>

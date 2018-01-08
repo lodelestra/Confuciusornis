@@ -10,7 +10,8 @@ const defaultGPUs = new Immutable.List(
       hashRate:23,
       power: 120,
       price: 264.99,
-      pictureUrl: 'products/GPUs/GeForce_GTX_1060.png'
+      pictureUrl: 'products/GPUs/GeForce_GTX_1060.png',
+      productUrl: 'https://www.amazon.com/EVGA-GeForce-Support-Graphics-06G-P4-6161-KR/dp/B01IPVSGEC',
     },
     {
       vendor: 'AMD',
@@ -41,23 +42,26 @@ const defaultPSUs = new Immutable.List(
     {
         name: 'CX750M',
         vendor: 'Corsair',
-        price: 79,
+        price: 79.99,
         powerSupply: 750,
-        pictureUrl: 'products/PSUs/Corsair_CX750M.jpg'
+        pictureUrl: 'products/PSUs/Corsair_CX750M.jpg',
+        productUrl: 'https://www.amazon.com/Corsair-Bronze-Certified-Modular-CP-9020061-NA/dp/B00ALK3KEM',
     },
     {
         name: 'CX850M',
         vendor: 'Corsair',
         price: 109,
         powerSupply: 850,
-        pictureUrl: 'products/PSUs/Corsair_CX850M.jpg'
+        pictureUrl: 'products/PSUs/Corsair_CX850M.jpg',
+        productUrl: 'https://www.amazon.com/Corsair-Bronze-Certified-Non-Modular-CP-9020123-NA/dp/B00OVCJKWC',
     },
     {
         name: '750 GQ',
         vendor: 'EVGA',
         price: 94.99,
         powerSupply: 750,
-        pictureUrl: 'products/PSUs/EVGA_750GQ.jpg'
+        pictureUrl: 'products/PSUs/EVGA_750GQ.jpg',
+        productUrl: 'https://www.amazon.com/EVGA-Modular-Warranty-Supply-210-GQ-0750-V1/dp/B017HA3RGE',
     },
     {
         name: 'placeholder test',
@@ -78,7 +82,8 @@ const defaultMotherboards = new Immutable.List(
       price: 59.99,
       power: 50,
       formFactor: 'Micro ATX',
-      pictureUrl: 'products/motherboards/GA-B250M-DS3H.png'
+      pictureUrl: 'products/motherboards/GA-B250M-DS3H.png',
+      productUrl: 'https://www.amazon.com/GIGABYTE-GA-B250M-DS3H-LGA1151-Intel-Motherboard/dp/B01N2WG23X',
     },
     {
       name: 'PRIME Z270-A',
@@ -88,7 +93,8 @@ const defaultMotherboards = new Immutable.List(
       price: 159,
       power: 60,
       formFactor: 'ATX',
-      pictureUrl: 'products/motherboards/PRIME-Z270-A.png'
+      pictureUrl: 'products/motherboards/PRIME-Z270-A.png',
+      productUrl: 'https://www.amazon.com/ASUS-PRIME-Z270-LGA1151-Motherboard/dp/B01NGTYV2Q',
     }
   ]
 );

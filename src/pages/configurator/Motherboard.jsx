@@ -10,6 +10,7 @@ import InboxIcon from 'material-ui-icons/Inbox';
 
 import {withStyles} from 'material-ui/styles';
 import AddIcon from 'material-ui-icons/Add';
+import {AmazonIcon} from '../../components/ShopsIcon';
 
 const styles = theme => ({
   container: {
@@ -55,7 +56,10 @@ const styles = theme => ({
   },
   holderContainer:{
     position: 'relative',
-  }
+  },
+  links: {
+    textDecoration: 'none',
+  },
 });
 
 const Motherboard = ( props ) => {
@@ -99,12 +103,18 @@ const Motherboard = ( props ) => {
           <div className={classes.storeList}>
             <Divider />
             <List>
-              <ListItem button>
-                <ListItemIcon>
-                  <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary={`${props.data.price} $`} />
-              </ListItem>
+              <a
+                className={classes.links}
+                target="_blank"
+                href={props.data.productUrl}
+              >
+                <ListItem button >
+                  <ListItemIcon>
+                    <AmazonIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={`${props.data.price} $`} />
+                </ListItem>
+              </a>
             </List>
           </div>
           <CardActions>

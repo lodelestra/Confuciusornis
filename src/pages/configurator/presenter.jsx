@@ -107,13 +107,20 @@ class Configurator extends Component {
                   count={gpu.count}
                   price={gpu.price}
                   pictureUrl={gpu.pictureUrl}
+                  productUrl={gpu.productUrl}
                   onRemoveGPUClick={this.props.onRemoveGPUClick}
                   onRemoveGPUCountClick={this.props.onRemoveGPUCountClick}
                   onAddGPUCountClick={this.props.onAddGPUCountClick}
                 />
               )}
               <Grid item xs={1}>
-                <Button fab color="primary" aria-label="add" className={classes.button} onClick={this.props.onAddGPUClick}>
+                <Button
+                  fab
+                  color="primary"
+                  aria-label="add"
+                  className={classes.button}
+                  onClick={this.props.onAddGPUClick}
+                >
                   <AddIcon />
                 </Button>
               </Grid>
