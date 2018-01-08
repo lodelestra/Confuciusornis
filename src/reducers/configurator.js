@@ -68,6 +68,31 @@ const defaultPSUs = new Immutable.List(
   ]
 );
 
+const defaultMotherboards = new Immutable.List(
+  [
+    {
+      name: 'GA-B250M-DS3H',
+      vendor: 'GIGABYTE',
+      socket: 'LGA 1151',
+      pci: 3,
+      price: 59.99,
+      power: 50,
+      formFactor: 'Micro ATX',
+      pictureUrl: 'products/motherboards/GA-B250M-DS3H.png'
+    },
+    {
+      name: 'PRIME Z270-A',
+      vendor: 'ASUS',
+      socket: 'LGA 1151',
+      pci: 5,
+      price: 159,
+      power: 60,
+      formFactor: 'ATX',
+      pictureUrl: 'products/motherboards/PRIME-Z270-A.png'
+    }
+  ]
+);
+
 let initialState = {
   GPUs: new Immutable.List(),
   allGPUs: defaultGPUs,
@@ -77,6 +102,8 @@ let initialState = {
   },
   allPSUs: defaultPSUs,
   psusDialogOpen: false,
+  allMotherboards: defaultMotherboards,
+  motherboardsDialogOpen: false,
 };
 
 const configurator = (state = initialState , action) => {
@@ -145,6 +172,16 @@ const configurator = (state = initialState , action) => {
       return {
         ...state,
         psusDialogOpen: false,
+      };
+    case actions.OPEN_MOTHERBOARDS_DIALOG:
+      return {
+        ...state,
+        motherboardsDialogOpen: true,
+      };
+    case actions.CLOSE_MOTHERBOARDS_DIALOG:
+      return {
+        ...state,
+        motherboardsDialogOpen: false,
       };
 
     default:

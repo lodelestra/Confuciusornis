@@ -6,6 +6,7 @@ import Motherboard from './Motherboard';
 import PSU from './PSU';
 import GPUsDialog from './GPUsDialog';
 import PSUsDialog from './PSUsDialog';
+import MotherboardsDialog from './MotherboardsDialog';
 
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
@@ -71,6 +72,11 @@ class Configurator extends Component {
           psus={this.props.allPSUs.toArray()}
           open={this.props.psusDialogOpen}
           onClose={this.props.onPsusDialogClose}
+        />
+        <MotherboardsDialog
+          motherboards={this.props.allMotherboards.toArray()}
+          open={this.props.motherboardsDialogOpen}
+          onClose={this.props.onMotherboardsDialogClose}
         />
         <Grid container spacing={24}>
           <Dashboard

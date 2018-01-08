@@ -9,6 +9,7 @@ import Divider from 'material-ui/Divider';
 import InboxIcon from 'material-ui-icons/Inbox';
 
 import {withStyles} from 'material-ui/styles';
+import AddIcon from 'material-ui-icons/Add';
 
 const styles = theme => ({
   container: {
@@ -20,11 +21,41 @@ const styles = theme => ({
   media: {
     height: 200,
   },
-  card: {
+  mediaHolder: {
+    height: 200,
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
   },
   storeList: {
     margin: theme.spacing.unit,
   },
+  addButton: {
+    display: 'inline',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    margin: 'auto',
+    width: '56px',
+    zIndex: 2,
+  },
+  card: {
+
+  },
+  blackScreen:{
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    opacity: 0.7,
+    backgroundColor: 'black',
+    zIndex: 1,
+  },
+  holderContainer:{
+    position: 'relative',
+  }
 });
 
 const Motherboard = ( props ) => {
@@ -36,11 +67,21 @@ const Motherboard = ( props ) => {
       </Typography>
       {props.data?
         <Card className={classes.card}>
-          <CardMedia
-            className={classes.media}
-            image="/placeholder.png"
-            title="Placeholder"
-          />
+          {(props.data!==undefined && props.data.pictureUrl)?
+            <CardMedia
+              className={classes.mediaHolder}
+              image={props.data.pictureUrl}
+              src={props.data.pictureUrl}
+              title='product picture'
+            />
+              :
+            <CardMedia
+              className={classes.mediaHolder}
+              image="/placeholders/motherboard.jpg"
+              src="/placeholders/motherboard.jpg"
+              title="Placeholder"
+            />
+          }
           <CardContent>
             <Typography type="headline" component="h2">
             { props.data.name }
@@ -77,27 +118,45 @@ const Motherboard = ( props ) => {
           </CardActions>
         </Card>
         :
-        <Card
-          className={classes.card}
-          onClick={() => { props.onAddMotherboardClick(); }}
+        <div
+          className={classes.holderContainer}
         >
-          <CardMedia
-            className={classes.media}
-            image="/placeholder.png"
-            title="Placeholder"
-          />
-          <CardContent>
+          <Card
+            className={classes.card}
+            onClick={() => { props.onAddMotherboardClick(); }}
+          >
+            <CardMedia
+              className={classes.mediaHolder}
+              image="/placeholders/motherboard.jpg"
+              src="/placeholders/motherboard.jpg"
+              title="Placeholder"
+            />
+            <CardContent>
 
-          </CardContent>
-          <CardActions>
-            <Button
-              dense
-              color="primary"
-            >
-              Add a motherboard
-            </Button>
-          </CardActions>
-        </Card>
+            </CardContent>
+            <CardActions>
+              <Button
+                dense
+                color="primary"
+              >
+                Add a Motherboard
+              </Button>
+            </CardActions>
+          </Card>
+          <div
+            className={classes.blackScreen}
+          >
+          </div>
+          <Button
+            fab
+            color="primary"
+            aria-label="add"
+            className={classes.addButton}
+            onClick={props.onAddMotherboardClick}
+          >
+            <AddIcon />
+          </Button>
+        </div>
       }
     </Grid>
 
