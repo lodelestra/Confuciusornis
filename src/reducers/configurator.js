@@ -12,6 +12,7 @@ const defaultGPUs = new Immutable.List(
       price: 264.99,
       pictureUrl: 'products/GPUs/GeForce_GTX_1060.png',
       productUrl: 'https://www.amazon.com/EVGA-GeForce-Support-Graphics-06G-P4-6161-KR/dp/B01IPVSGEC',
+      count:1,
     },
     {
       vendor: 'AMD',
@@ -19,6 +20,7 @@ const defaultGPUs = new Immutable.List(
       hashRate:22,
       power: 163,
       price: 250,
+      count:1,
     },
     {
       vendor: 'AMD',
@@ -26,6 +28,7 @@ const defaultGPUs = new Immutable.List(
       hashRate:20,
       power: 140,
       price: 200,
+      count:1,
     },
     {
       vendor: 'NVIDIA',
@@ -33,6 +36,7 @@ const defaultGPUs = new Immutable.List(
       hashRate:17,
       power: 140,
       price: 220,
+      count:1,
     },
   ]
 );
@@ -110,6 +114,7 @@ let initialState = {
   psusDialogOpen: false,
   allMotherboards: defaultMotherboards,
   motherboardsDialogOpen: false,
+  loadDefaultDialogOpen: true,
 };
 
 const configurator = (state = initialState , action) => {
@@ -188,6 +193,23 @@ const configurator = (state = initialState , action) => {
       return {
         ...state,
         motherboardsDialogOpen: false,
+      };
+    case actions.OPEN_LOAD_DEFAULT_DIALOG:
+      return {
+        ...state,
+        loadDefaultDialogOpen: true,
+      };
+    case actions.CLOSE_LOAD_DEFAULT_DIALOG:
+      return {
+        ...state,
+        loadDefaultDialogOpen: false,
+      };
+    case actions.LOAD_DEFAULT_CONF:
+      return {
+        ...state,
+        GPUs: state.GPUs.push(defaultGPUs.get(0)),
+        PSU: defaultPSUs.get(0),
+        motherboard: defaultMotherboards.get(0),
       };
 
     default:

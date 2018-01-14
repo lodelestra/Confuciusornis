@@ -7,6 +7,7 @@ import PSU from './PSU';
 import GPUsDialog from './GPUsDialog';
 import PSUsDialog from './PSUsDialog';
 import MotherboardsDialog from './MotherboardsDialog';
+import LoadDefaultDialog from './LoadDefaultDialog';
 
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
@@ -61,6 +62,7 @@ class Configurator extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.container}>
+
         <GPUsDialog
           gpus={this.props.filteredGPUs}
           open={this.props.gpusDialogOpen}
@@ -68,16 +70,25 @@ class Configurator extends Component {
           filters={this.props.gpusDialogFilters}
           handleFilterVendorChange={this.props.onChangeGpusDialogFilters}
         />
+
         <PSUsDialog
           psus={this.props.allPSUs.toArray()}
           open={this.props.psusDialogOpen}
           onClose={this.props.onPsusDialogClose}
         />
+
         <MotherboardsDialog
           motherboards={this.props.allMotherboards.toArray()}
           open={this.props.motherboardsDialogOpen}
           onClose={this.props.onMotherboardsDialogClose}
         />
+
+        <LoadDefaultDialog
+          open={this.props.loadDefaultDialogOpen}
+          onClose={this.props.onLoadDefaultDialogClose}
+          onLoadDefaultClick={this.props.onLoadDefaultClick}
+        />
+
         <Grid container spacing={24}>
           <Dashboard
             rigHashRate={this.props.rigHashRate}

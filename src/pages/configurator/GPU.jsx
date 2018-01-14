@@ -5,6 +5,7 @@ import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Button from 'material-ui/Button';
+import IconButton from 'material-ui/IconButton';
 import Divider from 'material-ui/Divider';
 import InboxIcon from 'material-ui-icons/Inbox';
 
@@ -41,7 +42,10 @@ const styles = theme => ({
 const GPU = ( props ) => {
   const { classes } = props;
   return (
-    <Grid item xs={2}>
+    <Grid
+      item
+      xs={12} sm={6} md={3} lg={2}
+    >
       <Card className={classes.card}>
         {(props.pictureUrl!==undefined)?
           <CardMedia
@@ -92,24 +96,24 @@ const GPU = ( props ) => {
           >
             delete
           </Button>
-          <Button
+          <IconButton
             dense
             disabled={props.count===1}
             color="primary"
             onClick={()=> {props.onRemoveGPUCountClick(props.index)}}
           >
             <RemoveIcon />
-          </Button>
+          </IconButton>
           <Typography component="p">
             {props.count}
           </Typography>
-          <Button
+          <IconButton
             dense
             color="primary"
             onClick={()=> {props.onAddGPUCountClick(props.index)}}
           >
             <AddIcon />
-          </Button>
+          </IconButton>
         </CardActions>
         <Divider />
       </Card>

@@ -65,7 +65,11 @@ const styles = theme => ({
 const PSU = ( props ) => {
   const { classes } = props;
   return (
-    <Grid className={classes.itemCategory} item xs={2}>
+    <Grid
+      className={classes.itemCategory}
+      item
+      xs={12} sm={6} md={3} lg={2}
+    >
       <Typography type="headline" component="h3">
         PSU
       </Typography>

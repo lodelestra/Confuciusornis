@@ -22,7 +22,7 @@ const Dashboard = (props) => {
   return (
     <Grid item xs={12}>
       <Grid container spacing={8}>
-        <Grid item xs={3}>
+        <Grid item xs={6} sm={3}>
           <Paper className={classes.itemCard} >
             <Typography type="title">
               Rig stats
@@ -38,7 +38,7 @@ const Dashboard = (props) => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={6} sm={2}>
           <Paper className={classes.itemCard} >
             <Typography type="title">
               Eth market
@@ -49,7 +49,7 @@ const Dashboard = (props) => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={6} sm={2}>
           <Paper className={classes.itemCard} >
             <Typography type="title">
               Rig revenu
@@ -66,7 +66,7 @@ const Dashboard = (props) => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={6} sm={2}>
           <Paper className={classes.itemCard} >
             <Typography type="title">
               Return On Investment
@@ -84,7 +84,7 @@ const Dashboard = (props) => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={6} sm={3}>
           <Paper className={classes.itemCard} >
             <Typography type="title">
               Rig Check

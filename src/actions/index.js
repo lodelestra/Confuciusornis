@@ -11,6 +11,10 @@ export const CLOSE_PSUS_DIALOG = 'CLOSE_PSUS_DIALOG';
 export const OPEN_MOTHERBOARDS_DIALOG = 'OPEN_MOTHERBOARDS_DIALOG';
 export const CLOSE_MOTHERBOARDS_DIALOG = 'CLOSE_MOTHERBOARDS_DIALOG';
 
+export const OPEN_LOAD_DEFAULT_DIALOG = 'OPEN_LOAD_DEFAULT_DIALOG';
+export const CLOSE_LOAD_DEFAULT_DIALOG = 'CLOSE_LOAD_DEFAULT_DIALOG';
+export const LOAD_DEFAULT_CONF = 'LOAD_DEFAULT_CONF';
+
 export const addGPU = GPU => {
   return {
     type: 'ADD_GPU',
@@ -105,5 +109,23 @@ export const openMotherboardsDialog = () => {
 export const closeMotherboardsDialog = () => {
   return {
     type: CLOSE_MOTHERBOARDS_DIALOG,
+  }
+}
+
+export const openLoadDefaultDialog = () => {
+  return {
+    type: OPEN_LOAD_DEFAULT_DIALOG,
+  }
+}
+
+export const closeLoadDefaultDialog = () => {
+  return {
+    type: CLOSE_LOAD_DEFAULT_DIALOG,
+  }
+}
+
+export const loadDefaultConf = () =>{
+  return {
+    type: LOAD_DEFAULT_CONF,
   }
 }

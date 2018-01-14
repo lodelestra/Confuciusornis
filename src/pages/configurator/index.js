@@ -6,6 +6,7 @@ import { addPSU, removePSU } from '../../actions';
 import { openGpusDialog, closeGpusDialog, changeGpusDialogFilters } from '../../actions';
 import { openPsusDialog, closePsusDialog } from '../../actions';
 import { openMotherboardsDialog, closeMotherboardsDialog } from '../../actions';
+import { openLoadDefaultDialog, closeLoadDefaultDialog, loadDefaultConf } from '../../actions';
 
 const mapStateToProps = state => {
   const rigHashRate = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.hashRate*gpu.count,0);
@@ -60,13 +61,13 @@ Array.prototype.random = function () {
 const mapDispatchToProps = dispatch => {
   return ({
     onMount : () =>{
-      dispatch(addGPU({
-        name:['R9 380','R9 390x','RX 480'].random(),
-        hashRate:[27,12,34].random(),
-        power: [123,243,233].random(),
-        price:[250,320,340].random(),
-        count:[2,3].random(),
-      }))
+      // dispatch(addGPU({
+      //   name:['R9 380','R9 390x','RX 480'].random(),
+      //   hashRate:[27,12,34].random(),
+      //   power: [123,243,233].random(),
+      //   price:[250,320,340].random(),
+      //   count:[2,3].random(),
+      // }))
     },
     onAddGPUClick : () =>{
       dispatch(
@@ -120,6 +121,13 @@ const mapDispatchToProps = dispatch => {
     },
     onRemovePSUClick: () => {
       dispatch(removePSU())
+    },
+    onLoadDefaultDialogClose: () =>{
+      dispatch(closeLoadDefaultDialog())
+    },
+    onLoadDefaultClick: () =>{
+      dispatch(loadDefaultConf())
+      dispatch(closeLoadDefaultDialog())
     },
   });
 }
