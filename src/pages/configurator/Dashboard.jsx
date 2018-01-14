@@ -28,13 +28,13 @@ const Dashboard = (props) => {
               Rig stats
             </Typography>
             <Typography component="p">
-              hash rate {props.rigHashRate} Mhs
+              hash rate {props.rigHashRate.toFixed(2)} Mhs
               <br />
-              {props.rigPower} Watt
+              {props.rigPower.toFixed(0)} Watt
               <br />
-              GPUs price {props.rigGPUPrice} $
+              GPUs price {props.rigGPUPrice.toFixed(2)} $
               <br />
-              Total Price {props.rigPrice} $
+              Total Price {props.rigPrice.toFixed(2)} $
             </Typography>
           </Paper>
         </Grid>
@@ -45,7 +45,7 @@ const Dashboard = (props) => {
             </Typography>
             <Typography component="p">
               <br />
-              Eth price {props.ethPrice} $
+              Eth price {props.ethPrice.toFixed(2)} $
             </Typography>
           </Paper>
         </Grid>
