@@ -2,6 +2,7 @@
   "name": "create-react-app",
   "version": "1.0.0",
   "private": true,
+  "homepage": "http://www.etherfibre.com",
   "dependencies": {
     "immutable": "^3.8.2",
     "jss": "^8.1.0",

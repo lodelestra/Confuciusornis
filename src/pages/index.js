@@ -50,6 +50,8 @@ class Index extends Component {
 
   render() {
     const { classes } = this.props;
+    const baseUrl = process.env.PUBLIC_URL;
+    console.log(baseUrl +'/MiningConfigurator');
     return (
       <div className={this.props.classes.root}>
         <Router>
@@ -61,8 +63,8 @@ class Index extends Component {
                     <MenuIcon />
                   </IconButton>
                   <Button color='contrast' component={Link} to="/">Home</Button>
-                  <Button color='contrast' component={Link} to="/MiningConfigurator">Mining Configurator</Button>
-                  <Button color='contrast' component={Link} to="/About">About</Button>
+                  <Button color='contrast' component={Link} to="/pg/MiningConfigurator">Mining Configurator</Button>
+                  <Button color='contrast' component={Link} to="/pg/About">About</Button>
 
                   <Typography type="title" color="inherit" className={classes.flex}>
                     Ether Fibre
@@ -73,9 +75,9 @@ class Index extends Component {
             <Grid item xs={12}>
               <div className='pages-container'>
                 <Route exact path='/' component={Home} />
-                <Route path='/MiningConfigurator' component={Configurator} />
-                <Route path='/MiningGuide' component={MiningGuide} />
-                <Route path="/About" component={About} />
+                <Route path={baseUrl +'/pg/MiningConfigurator'} component={Configurator} />
+                <Route path='/pg/MiningGuide' component={MiningGuide} />
+                <Route path="/pg/About" component={About} />
               </div>
             </Grid>
           </Grid>

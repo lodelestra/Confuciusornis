@@ -64,13 +64,13 @@ class Home extends Component {
             <Typography type="body2" gutterBottom>
               You can use our tool to create a rig mining configuration. It will give your some exemple of hardware to use and calculate the cost, profitability by day or month and even your date of return on investment (ROI).
             </Typography>
-            <Button href='MiningConfigurator' raised color="default" className={classes.callButton}>
+            <Button href='/pg/MiningConfigurator' raised color="default" className={classes.callButton}>
                => try the Configurator
             </Button>
         </div>
 
         <Typography type="body2" gutterBottom>
-          Or you can check this site, who as a pretty good guide right now. <a className={classes.embeddedLink} href="">The other site</a>
+          Or you can check the great site cryptocompare, who has a pretty good guide right now. <a className={classes.embeddedLink} href="https://www.cryptocompare.com/mining/guides/how-to-mine-ethereum/">Cryptocompare guide</a>
         </Typography>
       </div>
     );

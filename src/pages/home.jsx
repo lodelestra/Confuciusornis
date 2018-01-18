@@ -59,12 +59,12 @@ class Home extends Component {
             <Typography type="body2" gutterBottom>
               You can use our calculator to create a mining rig configuration. It will give your some examples of hardware to use and calculate for you the cost, profitability by day or month and even your date of return on investment (ROI).
             </Typography>
-            <Button href='MiningConfigurator' raised color="default" className={classes.callButton}>
+            <Button href='/pg/MiningConfigurator' raised color="default" className={classes.callButton}>
                => try the Configurator
             </Button>
 
             <Typography type="body1" gutterBottom>
-              After this quick simulation, if you are convinced that mining is profitable for you, our <a className={classes.embeddedLink} href="miningGuide">free guide</a>  will help you through the process of building and starting your hown mining rig.
+              After this quick simulation, if you are convinced that mining is profitable for you, our <a className={classes.embeddedLink} href="/pg/miningGuide">free guide</a>  will help you through the process of building and starting your hown mining rig.
             </Typography>
 
         </div>
@@ -77,7 +77,7 @@ class Home extends Component {
         </Typography>
         <Typography type="body1" gutterBottom>
           If you already have parts of the hardware needed to make a rig or if your electricity is cheap you will reach the point of ROI sooner.<br/>
-          In the calculator part of the <a className={classes.embeddedLink} href="MiningConfigurator">configurator</a> the return on investment (ROI) date is calculated without the <strong> hardware resale price!</strong> But your hardware has still worth good money. At the ROI date your hardware worth is pure profit, you are free to keep it to keep mining, or resale it at the best price. There is a market for used graphics card.
+          In the calculator part of the <a className={classes.embeddedLink} href="/pg/MiningConfigurator">configurator</a> the return on investment (ROI) date is calculated without the <strong> hardware resale price!</strong> But your hardware has still worth good money. At the ROI date your hardware worth is pure profit, you are free to keep it to keep mining, or resale it at the best price. There is a market for used graphics card.
         </Typography>
         <Typography type="subheading" gutterBottom>
           <strong>Does the mining complexity growth will impact my revenu ?</strong>
@@ -107,7 +107,7 @@ class Home extends Component {
           It's easier to buy etherum and way faster than mining it! You only need to open an account on a crypto money marketplace, and buy how many ether you want (or can). It's realy easier because they take care of keeping and managing your Ethereum wallet for you.
           Coinbase is one of the most serious and well known crypto coin marketplace in the world.
         </Typography>
-          <Button href='https://www.coinbase.com/join/5a60cf79d991c401c57320c4' raised color="default" className={classes.callButton}>
+          <Button href='https://www.coinbase.com/join/' raised color="default" className={classes.callButton}>
               Go look at Coinbase and get a 10$ bonus*
           </Button>
           <Typography type="caption" gutterBottom>

@@ -11,7 +11,7 @@ export const defaultGPUs = new Immutable.List(
       hashRate:23,
       power: 120,
       price: 264.99,
-      pictureUrl: 'products/GPUs/GeForce_GTX_1060.png',
+      pictureUrl: '/products/GPUs/GeForce_GTX_1060.png',
       productUrl: 'https://www.amazon.com/EVGA-GeForce-Support-Graphics-06G-P4-6161-KR/dp/B01IPVSGEC',
       count:1,
     },
@@ -21,7 +21,7 @@ export const defaultGPUs = new Immutable.List(
       hashRate:15,
       power: 190,
       price: 230.63,
-      pictureUrl: 'products/GPUs/gtx_1050_ti.jpg',
+      pictureUrl: '/products/GPUs/gtx_1050_ti.jpg',
       productUrl: 'https://www.amazon.com/gp/product/B076CMN8DJ/',
       count:1,
     },
@@ -42,7 +42,7 @@ export const defaultGPUs = new Immutable.List(
       hashRate:22.6,
       power: 130,
       price: 549.99,
-      pictureUrl: 'products/GPUs/rx_580_4GB.jpg',
+      pictureUrl: '/products/GPUs/rx_580_4GB.jpg',
       productUrl: 'https://www.amazon.com/Radeon-Dual-fan-GDDR5-Graphics-DUAL-RX580-O4G/dp/B071CMPRZZ/',
       count:1,
 
@@ -99,7 +99,7 @@ export const defaultGPUs = new Immutable.List(
     //   hashRate:15.3,
     //   power: 0,
     //   price: 0,
-    //   pictureUrl: 'products/GPUs/.png',
+    //   pictureUrl: '/products/GPUs/.png',
     //   productUrl: '',
     //   count:1,
     // },
@@ -113,7 +113,7 @@ export const defaultPSUs = new Immutable.List(
         vendor: 'Corsair',
         price: 79.99,
         powerSupply: 750,
-        pictureUrl: 'products/PSUs/Corsair_CX750M.jpg',
+        pictureUrl: '/products/PSUs/Corsair_CX750M.jpg',
         productUrl: 'https://www.amazon.com/Corsair-Bronze-Certified-Modular-CP-9020061-NA/dp/B00ALK3KEM',
     },
     {
@@ -121,7 +121,7 @@ export const defaultPSUs = new Immutable.List(
         vendor: 'Corsair',
         price: 109,
         powerSupply: 850,
-        pictureUrl: 'products/PSUs/Corsair_CX850M.jpg',
+        pictureUrl: '/products/PSUs/Corsair_CX850M.jpg',
         productUrl: 'https://www.amazon.com/Corsair-Bronze-Certified-Non-Modular-CP-9020123-NA/dp/B00OVCJKWC',
     },
     {
@@ -129,7 +129,7 @@ export const defaultPSUs = new Immutable.List(
         vendor: 'EVGA',
         price: 94.99,
         powerSupply: 750,
-        pictureUrl: 'products/PSUs/EVGA_750GQ.jpg',
+        pictureUrl: '/products/PSUs/EVGA_750GQ.jpg',
         productUrl: 'https://www.amazon.com/EVGA-Modular-Warranty-Supply-210-GQ-0750-V1/dp/B017HA3RGE',
     },
     {
@@ -151,7 +151,7 @@ export const defaultMotherboards = new Immutable.List(
       price: 59.99,
       power: 50,
       formFactor: 'Micro ATX',
-      pictureUrl: 'products/motherboards/GA-B250M-DS3H.png',
+      pictureUrl: '/products/motherboards/GA-B250M-DS3H.png',
       productUrl: 'https://www.amazon.com/GIGABYTE-GA-B250M-DS3H-LGA1151-Intel-Motherboard/dp/B01N2WG23X',
     },
     {
@@ -162,7 +162,7 @@ export const defaultMotherboards = new Immutable.List(
       price: 159,
       power: 60,
       formFactor: 'ATX',
-      pictureUrl: 'products/motherboards/PRIME-Z270-A.png',
+      pictureUrl: '/products/motherboards/PRIME-Z270-A.png',
       productUrl: 'https://www.amazon.com/ASUS-PRIME-Z270-LGA1151-Motherboard/dp/B01NGTYV2Q',
     }
   ]
