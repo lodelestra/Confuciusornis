@@ -19,7 +19,9 @@ import {
   Link
 } from 'react-router-dom'
 
+import Home from './home';
 import Configurator from './configurator';
+import MiningGuide from './miningGuide';
 import About from './about';
 
 const styles = {
@@ -58,18 +60,21 @@ class Index extends Component {
                   <IconButton className={classes.menuButton} color="contrast" aria-label="Menu">
                     <MenuIcon />
                   </IconButton>
-                  <Button color='contrast' component={Link} to="/">Configurator</Button>
+                  <Button color='contrast' component={Link} to="/">Home</Button>
+                  <Button color='contrast' component={Link} to="/MiningConfigurator">Mining Configurator</Button>
                   <Button color='contrast' component={Link} to="/About">About</Button>
 
                   <Typography type="title" color="inherit" className={classes.flex}>
-                    Bitcoin Ethereum Rig Configurator
+                    Ether Fibre
                   </Typography>
                 </Toolbar>
               </AppBar>
             </Grid>
             <Grid item xs={12}>
               <div className='pages-container'>
-                <Route exact path='/' component={Configurator} />
+                <Route exact path='/' component={Home} />
+                <Route path='/MiningConfigurator' component={Configurator} />
+                <Route path='/MiningGuide' component={MiningGuide} />
                 <Route path="/About" component={About} />
               </div>
             </Grid>
