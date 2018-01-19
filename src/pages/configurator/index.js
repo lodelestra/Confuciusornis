@@ -24,9 +24,9 @@ const mapStateToProps = state => {
   const rigPCIUsage = state.configurator.GPUs.reduce((sum,gpu)=>sum+gpu.count,0);
 
   //to load
-  const ethPrice = 1066.375;
-  const netHashGH = 228046.5320;
-  const blockTime = 14.2; //sec
+  const ethPrice = 1159.21;
+  const netHashGH = 188933.6732;
+  const blockTime = 14.67; //sec
 
   let netEthPerDay = 3*24*60*60 / blockTime;
   const rigEthPerDay = (netEthPerDay*rigHashRate*1e6)/(netHashGH * 1e9)
